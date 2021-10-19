@@ -49,41 +49,51 @@ The dataset _file.npy_ can be downloaded [here](https://drive.google.com/drive/f
 ### Autoencoder-MNIST
 Implementation of _Autoencoder_.
 
-[Code](models_using_MNIST/AE.ipynb)
-
-#### Example
+#### Run Example
 ```
 $ cd models_using_MNIST/
 $ ipython AE.ipynb
 ```
+[Code](models_using_MNIST/AE.ipynb)
 
 ### Variational Autoencoder-MNIST
 Implementation of _Variational Autoencoder_.
 
-[Code](models_using_MNIST/VAE.ipynb)
-
-Paper: https://arxiv.org/abs/1312.6114
-
-#### Example
+#### Run Example
 ```
 $ cd models_using_MNIST/
 $ ipython VAE.ipynb
 ```
+[Code](models_using_MNIST/VAE.ipynb) [Paper](https://arxiv.org/abs/1312.6114)
 
 ### DCGAN-MNIST
 Implementation of _Deep Convolutional Generative Adversarial Network_.
 
-[Code](models_using_MNIST/DCGAN_mnist.ipynb)
-
-Paper: https://arxiv.org/abs/1511.06434
-
-#### Example
+#### Run Example
 ```
 $ cd models_using_MNIST/
 $ ipython DCGAN_mnist.ipynb
 ```
+[Code](models_using_MNIST/DCGAN_mnist.ipynb) [Paper](https://arxiv.org/abs/1511.06434)
 
 ### DCGAN-Polynomial
+Implementation of _Deep Convolutional Generative Adversarial Network_.
 
+#### Run Example
+```
+$ cd GANs_using_Polynomials/
+$ ipython DCGAN_poly.ipynb
+```
+
+[Code](GANs_using_Polynomials/DCGAN_poly.ipynb) 
 
 ### WGAN-Polynomial
+Implementation of _Wasserstein Generative Adversarial Network_.
+
+#### Run Example
+```
+$ cd GANs_using_Polynomials/
+$ ipython WGAN_poly.ipynb
+```
+
+[Code](GANs_using_Polynomials/WGAN_poly.ipynb) [Paper](https://arxiv.org/abs/1701.07875)
