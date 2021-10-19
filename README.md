@@ -13,9 +13,7 @@ Models listed here are some cases simplified versions of the ones ultimately des
 
 ## About the Project
 The project is divided into two folders. Each of them contains the programs tailored to the different datasets it uses. 
-    $ git clone https://github.com/eriklindernoren/Keras-GAN
-    $ cd Keras-GAN/
-    $ sudo pip3 install -r requirements.txt
+   
 
 ### Datasets
 
