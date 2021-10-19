@@ -1,6 +1,6 @@
 # Deep Learning Models
 
-This repository aims to implement different Deep Learning (DL) Models as suggested in research papers, using [Keras](https://keras.io/).
+Collection of different Deep Learning models suggested in research papers, using [Keras](https://keras.io/).
 The implemented models are applied to the two different datasets. 
 Models listed here are some cases simplified versions of the ones ultimately described in papers.
 
@@ -12,7 +12,7 @@ Models listed here are some cases simplified versions of the ones ultimately des
 
 
 ## About the Project
-The project is divided into two different folders, each one for the different datasets used. 
+The project is divided into two folders. Each of them contains the programs tailored to the different datasets it uses. 
 
 ### Datasets
 
