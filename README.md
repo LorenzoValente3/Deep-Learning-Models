@@ -36,7 +36,7 @@ Each image is represented by 28x28 pixels, each value ranges from 0 to 255 and h
 
 ### 2. Polynomial
 The Polynomial database is a bi-dimensional contour plots dataset. 
-The [class](./GANs_using_Polyomials) considered in this project includes 20000 samples showing polynomial up to a maximum degree (the fifth degree is taken into account as the maximum one here) in two variables.
+The [class](./GANs_using_Polyomials/POLY_dataset.py) considered in this project includes 20000 samples showing polynomial up to a maximum degree (the fifth degree is taken into account as the maximum one here) in two variables.
 Each image is represented by 40x40 pixels for 1-channel. 
 An image of the dataset is shown below as an example.
 The dataset _file.npy_ can be downloaded [here](https://drive.google.com/drive/folders/13HlpRhNTrz7WK0NQnrNoA7BQTlPOXb3u?usp=sharing). 
@@ -70,7 +70,7 @@ $ cd models_using_MNIST/
 $ ipython VAE.ipynb
 ```
 
-### DCGAN - MNIST
+### DCGAN-MNIST
 Implementation of _Deep Convolutional Generative Adversarial Network_.
 
 [Code](models_using_MNIST/DCGAN_mnist.ipynb)
@@ -83,7 +83,7 @@ $ cd models_using_MNIST/
 $ ipython DCGAN_mnist.ipynb
 ```
 
-### DCGAN - Polynomial
+### DCGAN-Polynomial
 
 
-### WGAN - Polynomial
+### WGAN-Polynomial
