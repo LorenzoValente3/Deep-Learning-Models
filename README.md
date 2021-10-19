@@ -25,7 +25,7 @@ Each of them contains the programs tailored to the different datasets it uses.
 
 ### Datasets
 #### MNIST
-The [MNIST database](https://en.wikipedia.org/wiki/MNIST_database) is a handwritten digits dataset. The [class](models using MNIST/MNIST_dataset.py) considered here includes 60.000 training samples and 10.000 test samples. Each image is represented by 28x28 pixels, each value ranges from 0 to 255 and has a grayscale value.
+The [MNIST database](https://en.wikipedia.org/wiki/MNIST_database) is a handwritten digits dataset. The [class](./models_using_MNIST/MNIST_dataset.py) considered here includes 60.000 training samples and 10.000 test samples. Each image is represented by 28x28 pixels, each value ranges from 0 to 255 and has a grayscale value.
 
 #### Polynomial
 Polynomial data class: Generation of 2-D images (40x40 for 1-channel) showing polynomial up to a maximum degree in two variables.
