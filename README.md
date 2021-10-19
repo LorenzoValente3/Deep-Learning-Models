@@ -37,7 +37,9 @@ Each image is represented by 40x40 pixels for 1-channel.
 An image of the dataset is shown below as an example.
 The dataset _file.npy_ can be downloaded [here](https://drive.google.com/drive/folders/13HlpRhNTrz7WK0NQnrNoA7BQTlPOXb3u?usp=sharing). 
 
-<img src="GANs_using_Polynomials/images/DCGAN/contour.png" align="center" width="500" height="auto"/>
+<p align="center">
+    <img src="GANs_using_Polynomials/images/DCGAN/contour.png" width="640"\>
+</p>
 
 
 ## Implementations 
