@@ -67,8 +67,8 @@ Implementation of _Variational Autoencoder_.
 
 | VAE without classifier                                                                              | VAE with classifier         |
 | ------------------------------                                                                      | -------------------------   |
-|<p float="center"> <img src="/models_using_MNIST/images/VAE/Latent dimension of Variational Autoencoder without classifier.png" width="400" />                                                                                                     |           <img src="/models_using_MNIST/images/AE/Latent dimension of Variational Autoencoder with classifier.png" width="400" />                                                                                                                                   |
-|  <img src="/models_using_MNIST/images/AE/Accuracy of Variational Autoencoder without classifier.png" width="400" />                                                                                                     |<img src="/models_using_MNIST/images/AE/Accuracy of Variational Autoencoder with classifier.png" width="400" />                                                                         |
+|<p float="center"> <img src="/models_using_MNIST/images/VAE/Latent dimension of Variational Autoencoder without classifier.png" width="400" />                                                                                                     |           <img src="/models_using_MNIST/images/VAE/Latent dimension of Variational Autoencoder with classifier.png" width="400" />                                                                                                                                   |
+|  <img src="/models_using_MNIST/images/VAE/Accuracy of Variational Autoencoder without classifier.png" width="400" />                                                                                                     |<img src="/models_using_MNIST/images/VAE/Accuracy of Variational Autoencoder with classifier.png" width="400" />                                                                         |
 </p>
 
 
