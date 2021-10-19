@@ -13,6 +13,7 @@ Models listed here are some cases simplified versions of the ones ultimately des
 
 - [Implementations](#implementations)
     - [Autoencoder - MNIST](#autoencoder-mnist)
+    - [Variational Autoencoder - MNIST](#variational-autoencoder-mnist)
     
 
 ## Installation
@@ -25,12 +26,12 @@ The project is divided into two folders.
 Each of them contains the models tailored to the different datasets they use. 
 
 ### Datasets
-#### MNIST
+### 1. MNIST
 The [MNIST database](https://en.wikipedia.org/wiki/MNIST_database) is a handwritten digits dataset. 
 The [class](./models_using_MNIST/MNIST_dataset.py) considered in this project includes 60.000 training samples and 10.000 test samples. 
 Each image is represented by 28x28 pixels, each value ranges from 0 to 255 and has a grayscale value.
 
-#### Polynomial
+### 2. Polynomial
 The Polynomial database is a bi-dimensional contour plots dataset. 
 The [class](./GANs_using_Polyomials) considered in this project includes 20000 samples showing polynomial up to a maximum degree (the fifth degree is taken into account as the maximum one here) in two variables.
 Each image is represented by 40x40 pixels for 1-channel. 
@@ -38,15 +39,32 @@ An image of the dataset is shown below as an example.
 The dataset _file.npy_ can be downloaded [here](https://drive.google.com/drive/folders/13HlpRhNTrz7WK0NQnrNoA7BQTlPOXb3u?usp=sharing). 
 
 <p align="center">
-    <img src="GANs_using_Polynomials/images/DCGAN/contour.png" width="640"\>
+    <img src="GANs_using_Polynomials/images/DCGAN/contour.png" width="500"\>
 </p>
-
 
 ## Implementations 
 ### Autoencoder - MNIST
+Implementation of _Autoencoder_ architecture.
+
+[Code](models_using_MNIST/AE.ipynb)
+
+#### Example
+```
+$ cd models_using_MNIST/
+$ ipython AE.ipynb
+```
 
 
 
+### Variational Autoencoder - MNIST
+Implementation of _Variational Autoencoder_ architecture.
 
+[Code](models_using_MNIST/VAE.ipynb)
 
+Paper: https://arxiv.org/abs/1312.6114
 
+#### Example
+```
+$ cd models_using_MNIST/
+$ ipython VAE.ipynb
+```
