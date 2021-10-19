@@ -50,8 +50,8 @@ The dataset _file.npy_ can be downloaded [here](https://drive.google.com/drive/f
 Implementation of a simple _Autoencoder_ for the MNIST data and an autoencoder that is able to _classify_ data in its latent dimension is built as well.
 
 <p float="left">
-  <img src="/GANs_using_Polynomials/images/AE/Accuracy of Autoencoder with classifier.png" width="100" />
-  <img src="/GANs_using_Polynomials/images/AE/Accuracy of Autoencoder without classifier.png" width="100" /> 
+  <img src="/models_using_MNIST/images/AE/Accuracy of Autoencoder with classifier.png" width="100" />
+  <img src="/models_using_MNIST/images/AE/Accuracy of Autoencoder without classifier.png" width="100" /> 
 </p>
 
 #### Run Example
