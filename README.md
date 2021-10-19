@@ -13,7 +13,7 @@ Models listed here are some cases simplified versions of the ones ultimately des
     
 
 ## Installation
-    $ git clone https://github.com/eriklindernoren/Keras-GAN
+    $ git clone https://github.com/LorenzoValente3/Deep-Learning-Models.git
     $ cd Keras-GAN/
     $ sudo pip3 install -r requirements.txt'
 
@@ -22,14 +22,5 @@ The project is divided into two folders.
 Each of them contains the programs tailored to the different datasets it uses. 
 
 ### Datasets
-
-
-
-
-
-
-
-
-
 
 
