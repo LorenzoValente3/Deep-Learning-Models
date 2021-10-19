@@ -12,7 +12,7 @@ Models listed here are some cases simplified versions of the ones ultimately des
     - [Datasets](#datasets)
 
 - [Implementations](#implementations)
-    - [Datasets](#datasets)
+    - [Autoencoder - MNIST](#autoencoder-mnist)
     
 
 ## Installation
@@ -37,8 +37,8 @@ Each image is represented by 40x40 pixels for 1-channel.
 An image of the dataset is shown below as an example.
 The dataset _file.npy_ can be downloaded [here](https://drive.google.com/drive/folders/13HlpRhNTrz7WK0NQnrNoA7BQTlPOXb3u?usp=sharing). 
 
-<img src="./GANs_using_Polynomials/images/DCGAN/contour.PNG" align="center" width="100" height="auto"/>
+<img src="GANs_using_Polynomials/images/DCGAN/contour.png" align="center" width="100" height="auto"/>
 
 
-## Implementations
-### MNIST - Autoencoder
+## Implementations 
+### Autoencoder - MNIST
