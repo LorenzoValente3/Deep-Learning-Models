@@ -2,7 +2,7 @@
 
 
 Collection of different Deep Learning models suggested in research papers, using [Keras](https://keras.io/).
-The implemented models are applied to the two different datasets. 
+The implemented models are applied to the two different [datasets](#datasets). 
 Models listed here are some cases simplified versions of the ones ultimately described in papers.
 
 ## Table of contents
@@ -11,7 +11,7 @@ Models listed here are some cases simplified versions of the ones ultimately des
 - [About the project](#about-the-project)
     - [Datasets](#datasets)
 
-- [implementations](#implementations)
+- [Implementations](#implementations)
     - [Datasets](#datasets)
     
 
@@ -37,7 +37,7 @@ Each image is represented by 40x40 pixels for 1-channel.
 An image of the dataset is shown below as an example.
 The dataset _file.npy_ can be downloaded [here](https://drive.google.com/drive/folders/13HlpRhNTrz7WK0NQnrNoA7BQTlPOXb3u?usp=sharing). 
 
-<img src="GANs_using_Polyomials/images/DCGAN/contour.png" align="center" width="100" height="auto"/>
+<img src="./GANs_using_Polynomials/images/DCGAN/contour.PNG" align="center" width="100" height="auto"/>
 
 
 ## Implementations
