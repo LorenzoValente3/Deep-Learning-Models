@@ -1,5 +1,4 @@
 # Deep Learning Models
-<<<<<<< HEAD
 > Keras implementation of Deep Learning models to the two different datasets
 
 This repository aims to implement using [Keras](https://keras.io/) differents Deep Learning (DL) Models as suggested in research papers.
@@ -19,5 +18,3 @@ Models listed here are some cases simplified versions of the ones ultimately des
     - [First page](#first-page)
     - [Second page](#second-page)
     - [Third page](#third-page)
-=======
->>>>>>> 740de4ff6995dbed34edd7d95453a5972f65f13e
