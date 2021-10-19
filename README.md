@@ -49,9 +49,9 @@ The dataset _file.npy_ can be downloaded [here](https://drive.google.com/drive/f
 ### Autoencoder-MNIST
 Implementation of a simple _Autoencoder_ for the MNIST data and an autoencoder that is able to _classify_ data in its latent dimension is built as well.
 
-<p float="left">
-  <img src="/models_using_MNIST/images/AE/Accuracy of Autoencoder with classifier.png" width="100" />
-  <img src="/models_using_MNIST/images/AE/Accuracy of Autoencoder without classifier.png" width="100" /> 
+<p float="center">
+  <img src="/models_using_MNIST/images/AE/Accuracy of Autoencoder with classifier.png" width="300" />
+  <img src="/models_using_MNIST/images/AE/Accuracy of Autoencoder without classifier.png" width="300" /> 
 </p>
 
 #### Run Example
