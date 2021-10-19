@@ -14,7 +14,7 @@ Models listed here are some cases simplified versions of the ones ultimately des
 
 ## Installation
     $ git clone https://github.com/LorenzoValente3/Deep-Learning-Models.git
-    $ cd Keras-GAN/
+    $ cd Deep-Learning-Models/
     $ sudo pip3 install -r requirements.txt'
 
 ## About the Project
