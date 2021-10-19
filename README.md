@@ -14,6 +14,9 @@ Models listed here are some cases simplified versions of the ones ultimately des
 - [Implementations](#implementations)
     - [Autoencoder - MNIST](#autoencoder-mnist)
     - [Variational Autoencoder - MNIST](#variational-autoencoder-mnist)
+    - [DCGAN - MNIST](#dcgan-mnist)
+    - [DCGAN - Polynomial](#dcgan-polynomial)
+    - [WGAN - Polynomial](#wgan-polynomial)
     
 
 ## Installation
@@ -39,12 +42,12 @@ An image of the dataset is shown below as an example.
 The dataset _file.npy_ can be downloaded [here](https://drive.google.com/drive/folders/13HlpRhNTrz7WK0NQnrNoA7BQTlPOXb3u?usp=sharing). 
 
 <p align="center">
-    <img src="GANs_using_Polynomials/images/DCGAN/contour.png" width="500"\>
+    <img src="GANs_using_Polynomials/images/DCGAN/contour.png" width="400"\>
 </p>
 
 ## Implementations 
-### Autoencoder - MNIST
-Implementation of _Autoencoder_ architecture.
+### Autoencoder-MNIST
+Implementation of _Autoencoder_.
 
 [Code](models_using_MNIST/AE.ipynb)
 
@@ -54,10 +57,8 @@ $ cd models_using_MNIST/
 $ ipython AE.ipynb
 ```
 
-
-
-### Variational Autoencoder - MNIST
-Implementation of _Variational Autoencoder_ architecture.
+### Variational Autoencoder-MNIST
+Implementation of _Variational Autoencoder_.
 
 [Code](models_using_MNIST/VAE.ipynb)
 
@@ -68,3 +69,21 @@ Paper: https://arxiv.org/abs/1312.6114
 $ cd models_using_MNIST/
 $ ipython VAE.ipynb
 ```
+
+### DCGAN - MNIST
+Implementation of _Deep Convolutional Generative Adversarial Network_.
+
+[Code](models_using_MNIST/DCGAN_mnist.ipynb)
+
+Paper: https://arxiv.org/abs/1511.06434
+
+#### Example
+```
+$ cd models_using_MNIST/
+$ ipython DCGAN_mnist.ipynb
+```
+
+### DCGAN - Polynomial
+
+
+### WGAN - Polynomial
