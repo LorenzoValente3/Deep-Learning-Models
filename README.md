@@ -1,5 +1,8 @@
 # Deep Learning Models
 
+```math
+SE = \frac{\sigma}{\sqrt{n}}
+```
 
 Collection of different Deep Learning models suggested in research papers, using [Keras](https://keras.io/).
 The implemented models are applied to the two different [datasets](#datasets). 
