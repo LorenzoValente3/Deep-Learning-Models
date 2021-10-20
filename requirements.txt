@@ -1,7 +1,8 @@
-#AE
+#AE and VAE
 keras
 tensorflow
 matplotlib
 numpy
 matplotlib
 os
+

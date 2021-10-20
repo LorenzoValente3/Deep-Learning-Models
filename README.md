@@ -22,19 +22,19 @@ Models listed here are some cases simplified versions of the ones ultimately des
 ## Installation
     $ git clone https://github.com/LorenzoValente3/Deep-Learning-Models.git
     $ cd Deep-Learning-Models/
-    $ sudo pip3 install -r requirements.txt'
+    $ sudo pip3 install -r requirements.txt
 
 ## About the Project
 The project is divided into two folders. 
 Each of them contains the models tailored to the different datasets they use. 
 
 ### Datasets
-### 1. MNIST
+#### 1. MNIST
 The [MNIST database](https://en.wikipedia.org/wiki/MNIST_database) is a handwritten digits dataset. 
 The [[class]](./models_using_MNIST/MNIST_dataset.py) implemented in this project includes 60.000 training samples and 10.000 test samples. 
 Each image is represented by 28x28 pixels, each value ranges from 0 to 255 and has a grayscale value.
 
-### 2. Polynomial
+#### 2. Polynomial
 The Polynomial database is a bi-dimensional contour plots dataset. 
 The [[class]](./GANs_using_Polynomials/POLY_dataset.py) implemented in this project includes 20000 samples showing polynomial up to a maximum degree (the fifth degree is taken into account as the maximum one here) in two variables.
 Each image is represented by 40x40 pixels for 1-channel. 
@@ -49,7 +49,7 @@ The dataset _file.npy_ can be downloaded [here](https://drive.google.com/drive/f
 ### Autoencoder-MNIST
 Implementation of a simple _Autoencoder_ for the MNIST data and an autoencoder that is able to _classify_ data in its latent dimension is built as well.
 
-| Autoencoder without classifier                                                                              | Autoencoder with classifier |
+| Clustering of images in latent space                                                                                | Clustering with classifier  |
 | ------------------------------                                                                              | -------------------------   |
 |<p float="center"> <img src="/models_using_MNIST/images/AE/Latent dimension of Autoencoder without classifier.png" width="400" />                                   |           <img src="/models_using_MNIST/images/AE/Latent dimension of Autoencoder with classifier.png" width="400" />                                                                                                                                           |
 |  <img src="/models_using_MNIST/images/AE/Accuracy of Autoencoder without classifier.png" width="400" />    |<img src="/models_using_MNIST/images/AE/Accuracy of Autoencoder with classifier.png" width="400" />                                                                                             |
@@ -63,9 +63,10 @@ $ ipython AE.ipynb
 [[Code]](models_using_MNIST/AE.ipynb)
 
 ### Variational Autoencoder-MNIST
-Implementation of _Variational Autoencoder_.
+Implementation of _Variational Autoencoder_ and test it on the MNIST dataset. 
+The variational autoencoder able to _classify_ data in its data is built as well.
 
-| VAE without classifier                                                                              | VAE with classifier         |
+| Clustering of images in latent space                                                                             | Clustering with classifier         |
 | ------------------------------                                                                      | -------------------------   |
 |<p float="center"> <img src="/models_using_MNIST/images/VAE/Latent dimension of Variational Autoencoder without classifier.png" width="400" />                                                                                                     |           <img src="/models_using_MNIST/images/VAE/Latent dimension of Variational Autoencoder with classifier.png" width="400" />                                                                                                                                   |
 |  <img src="/models_using_MNIST/images/VAE/Accuracy of Variational Autoencoder without classifier.png" width="400" />                                                                                                     |<img src="/models_using_MNIST/images/VAE/Accuracy of Variational Autoencoder with classifier.png" width="400" />                                                                         |

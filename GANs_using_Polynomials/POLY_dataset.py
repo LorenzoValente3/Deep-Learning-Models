@@ -35,7 +35,7 @@ class PolynomialData:
         dir = os.path.join("dataset")
         if not os.path.exists(dir):
             os.mkdir(dir)
-        np.save('./dataset/polydata.npy', self.polydata)
+        np.save('./polydata.npy', self.polydata)
 
 if __name__ == '__main__':
     datap = PolynomialData()
