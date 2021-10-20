@@ -76,7 +76,7 @@ $ ipython AE.ipynb
 [[Code]](models_using_MNIST/AE.ipynb)
 
 ### Variational Autoencoder-MNIST
-Implementation of _Variational Autoencoder_ with factorized gaussian posteriors, $q_{\phi}(z|x ) = \mathcal{N}(z, \mu(x),diag(\sigma^{2}))$ and standard normal latent variables $p(z) =\mathcal{N}(0, \pmb I ) $. 
+Implementation of _Variational Autoencoder_ with factorized gaussian posteriors, $` q_{\phi}(z|x ) = \mathcal{N}(z, \mu(x),diag(\sigma^{2})) `$ and standard normal latent variables $`p(z) =\mathcal{N}(0, \pmb I ) `$. 
 The variational autoencoder able to _classify_ data in its data is built as well.
 
 We have 'encoded_mean' and 'encoded_var' which we use for the sampling trick which help us to impose multi-gaussian distribution on the latent space.
