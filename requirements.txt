@@ -6,3 +6,10 @@ numpy
 matplotlib
 os
 
+#GANs
+git+https://github.com/tensorflow/docs 
+imageio
+glob
+PIL
+time
+IPython

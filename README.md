@@ -46,14 +46,18 @@ The dataset _file.npy_ can be downloaded [here](https://drive.google.com/drive/f
 
 ## Implementations 
 ### Autoencoder-MNIST
-Implementation of a simple _Autoencoder_ for the MNIST data and an autoencoder that is able to _classify_ data in its latent dimension is built as well.
+Implementation of a simple _Autoencoder_ for the MNIST data and an autoencoder that can _classify_ data in its latent dimension is built as well.
 
-The design implemented here uses an architecture in which a _bottleneck_ in the network is imposed, forcing a compressed knowledge representation of the original input. In the absence of structure in the data (i.e. correlations between input features), compression and subsequent reconstruction would be very difficult. 
+#### Model 
+
+The design implemented here uses an architecture in which a _bottleneck_ in the network is imposed
+It forces a compressed knowledge representation of the original input data.
+If the absence of structure in the data occurs, i.e. correlations between input features, compression and subsequent reconstruction would be very difficult. 
 However, if some sort of structure exists in the data, this structure can be learned and therefore leveraged when forcing the input through the bottleneck.
 
 #### Results 
-Distribution of labaled data in its two-latent dimension space as well as plots of model score losses are shown below, for both models with and without the classifier.
-Looking at the distribution of images in the latent space, it is clearly visible a linear behaviour. That happens because we have two dimensions to express a handwritten digit, it could happen that the heigth increases and the width increases as well, linearly as displayed. 
+The distribution of labelled data in its two-latent dimension space, as well as plots of model score losses, are shown below, for both models with and without the classifier.
+Looking at the distribution of images in the latent space, it is visible a linear behaviour. That happens because we have two dimensions to express a handwritten digit, it could happen that the height increases and the width increase as well, linearly as displayed. 
 Model losses score converges at high epochs.
 
 | Autoencoder without classifier                                                                               | Autoencoder with classifier  |
@@ -70,28 +74,26 @@ $ ipython AE.ipynb
 [[Code]](models_using_MNIST/AE.ipynb)
 
 ### Variational Autoencoder-MNIST
-Implementation of _Variational Autoencoder_ with factorized gaussian posteriors, <img src="https://render.githubusercontent.com/render/math?math=q_{\phi}(z|x ) = \mathcal{N}(z, \mu(x),diag(\sigma^{2}))"> and standard normal latent variables <img src="https://render.githubusercontent.com/render/math?math=p(z) =\mathcal{N}(0, \pmb I )">
+Implementation of _Variational Autoencoder_ with factorized gaussian posteriors, <img src="https://render.githubusercontent.com/render/math?math=q_{\phi}(z|x ) = \mathcal{N}(z, \mu(x),diag(\sigma^{2}))"> and standard normal latent variables <img src="https://render.githubusercontent.com/render/math?math=p(z) =\mathcal{N}(0, \pmbI)">
 The variational autoencoder able to _classify_ data in its data is built as well.
 
-In contrast with the standard _Autoencoder_, the final part of the *encoder* structure bottleneck has two additional Dense layers: _mean_ and _variance_.
-These two layers are used for the _sampling trick_ implementation, which help us to impose multi-gaussian distribution on the latent space.  
+#### Model 
+In contrast with the _Standard Autoencoder_, the final part of the *encoder* structure bottleneck has two Dense layers: `self.encoded_mean` and `self.encoded_var`.
+In this case, it is needed two-dimensional mean and variance as well.
+These two layers are used for the _sampling trick implementation_, which help us to impose multi-gaussian distribution on the latent space.  
+A `Lambda Layer` is created.
+It takes both of the previous layers and measures them to the latent space dimension, via the `self.sampling` function (_Reparametrization trick_).
+The sampling creates a structure that is a mixture of multiple Gaussian distributions. 
+The remaining part of the encoder architecture is built in perfect analogy with the previous standard autoencoder.
 
-
-We have 'encoded_mean' and 'encoded_var' which we use for the sampling trick which help us to impose multi-gaussian distribution on the latent space.
-We build the encoder in perfect analogy with the previous Autoencoder.
-In this case we don't just have a latent dimension of two, but two Dense layers each one of dimension two (--> so for 2-dim latent space we need 2D mean and 2D var). 
-A Lambda Layer is created, it takes both of the previous layers and measures them to the latent space dimension, via the self.sampling (reparametrization trick).
-The sampling creates a structure that is a mixture of multiple gaussian distribution. in the end we spread out the standard normal distribution and shift the original mean.
-
-Decoder is a perfect analogy with the standard autoencoder.
+_Decoder_ architecture is perfectly analogous with the decoder of the standard autoencoder one.
 
 #### Results 
-To visualize the results in the latent space we build a model for the encoder structure
+As for the previous implementation, the distribution of labelled data in its two-latent dimension space, as well as plots of model score losses, are reported below, for both models with and without the classifier.
 
-In this case the distribution of images in latent space are no more linear but a point clouds. This happens because we impose a gaussian mixture model on the latent space, essentially we expect k-differnt point clouds, that are one digit each.
-
-To generate a new sample we take a point in the latent space and the recostruction with the decoder will give us something consistent with the orginal dataset and finally generate new handwritten digit of that digit.
-
+To visualize the results in the latent space the model for the encoder structure is built.
+In this case, the distribution of images in latent space is no more linear, but point clouds. 
+This happens because we impose a gaussian mixture model on the latent space and as is expected, we have k-different point clouds, that represents one digit each.
 
 
 
@@ -114,7 +116,7 @@ Implementation of _Deep Convolutional Generative Adversarial Network_ with a cus
 To address this task GPU is used. 
 
 #### Results 
-Below generated images over 500 epochs embedded in a _gif_ are reported and distribution of Generator and Discriminator losses over each epochs are displayed in the plot.
+Below generated images over 500 epochs embedded in a _gif_ are reported and distribution of Generator and Discriminator losses over each epoch are displayed in the plot.
 
 
 <p align="center">
