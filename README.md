@@ -97,7 +97,7 @@ To generate a new sample we take a point in the latent space and the recostructi
 
 | VAE without classifier                                                                            | VAE with classifier         |
 | ------------------------------                                                                      | -------------------------   |
-|<p float="center"> <img src="/models_using_MNIST/images/VAE/Latent dimension of Variational Autoencoder without classifier.png" width="400" />                                                                                                     |           <img src="/models_using_MNIST/images/VAE/Latent dimension of Variational Autoencoder with classifier.png" width="400" />                                                                                                                                   |
+|<p align="center"> <img src="/models_using_MNIST/images/VAE/Latent dimension of Variational Autoencoder without classifier.png" width="400" />                                                                                                     |           <img src="/models_using_MNIST/images/VAE/Latent dimension of Variational Autoencoder with classifier.png" width="400" />                                                                                                                                   |
 |  <img src="/models_using_MNIST/images/VAE/Accuracy of Variational Autoencoder without classifier.png" width="400" />                                                                                                     |<img src="/models_using_MNIST/images/VAE/Accuracy of Variational Autoencoder with classifier.png" width="400" />                                                                         |
 </p>
 
@@ -117,7 +117,8 @@ To address this task GPU is used.
 Below generated images over 500 epochs embedded in a _gif_ are reported and distribution of Generator and Discriminator losses over each epochs are displayed in the plot.
 
 
-<p float="center"> <img src="/models_using_MNIST/images/GAN/dcgan.gif" width="400" />      
+<p align="center">
+ <img src="/models_using_MNIST/images/GAN/dcgan.gif" width="300" />      
 
 
 #### Run Example
