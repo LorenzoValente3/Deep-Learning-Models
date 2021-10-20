@@ -1,9 +1,5 @@
 # Deep Learning Models
 
-```math
-SE = \frac{\sigma}{\sqrt{n}}
-```
-
 Collection of different Deep Learning models suggested in research papers, using [Keras](https://keras.io/).
 The implemented models are applied to the two different [datasets](#datasets). 
 Models listed here are some cases simplified versions of the ones ultimately described in papers.
@@ -56,14 +52,9 @@ The design implemented here uses an architecture in which a _bottleneck_ in the 
 However, if some sort of structure exists in the data, this structure can be learned and therefore leveraged when forcing the input through the bottleneck.
 
 #### Results 
-Distribution of labaled data in its two-latent dimension space is reported as well as score loss.
-
-Looking at the distribution in latent dimension it is clearly visible a linear behaviour in the latent dimension. That's happen because we have 2 dimensions to express a handwritten digit, if the heigth increases the width increases as well.
-
-we see a convergence of the loss
-
-
-
+Distribution of labaled data in its two-latent dimension space as well as plots of model score losses are shown below, for both models with and without the classifier.
+Looking at the distribution of images in the latent space, it is clearly visible a linear behaviour. That happens because we have two dimensions to express a handwritten digit, it could happen that the heigth increases and the width increases as well, linearly as displayed. 
+Model losses score converges at high epochs.
 
 | Autoencoder without classifier                                                                               | Autoencoder with classifier  |
 | ------------------------------                                                                              | -------------------------   |
@@ -79,10 +70,12 @@ $ ipython AE.ipynb
 [[Code]](models_using_MNIST/AE.ipynb)
 
 ### Variational Autoencoder-MNIST
-Implementation of _Variational Autoencoder_ with factorized gaussian posteriors, <img src="https://render.githubusercontent.com/render/math?math=q_{\phi}(z|x ) = \mathcal{N}(z, \mu(x),diag(\sigma^{2}))">
-
-$` q_{\phi}(z|x ) = \mathcal{N}(z, \mu(x),diag(\sigma^{2})) `$ and standard normal latent variables $`p(z) =\mathcal{N}(0, \pmb I ) `$.  $`\sqrt{2}`$
+Implementation of _Variational Autoencoder_ with factorized gaussian posteriors, <img src="https://render.githubusercontent.com/render/math?math=q_{\phi}(z|x ) = \mathcal{N}(z, \mu(x),diag(\sigma^{2}))"> and standard normal latent variables <img src="https://render.githubusercontent.com/render/math?math=p(z) =\mathcal{N}(0, \pmb I )">
 The variational autoencoder able to _classify_ data in its data is built as well.
+
+In contrast with the standard _Autoencoder_, the final part of the *encoder* structure bottleneck has two additional Dense layers: _mean_ and _variance_.
+These two layers are used for the _sampling trick_ implementation, which help us to impose multi-gaussian distribution on the latent space.  
+
 
 We have 'encoded_mean' and 'encoded_var' which we use for the sampling trick which help us to impose multi-gaussian distribution on the latent space.
 We build the encoder in perfect analogy with the previous Autoencoder.
@@ -122,6 +115,10 @@ To address this task GPU is used.
 
 #### Results 
 Below generated images over 500 epochs embedded in a _gif_ are reported and distribution of Generator and Discriminator losses over each epochs are displayed in the plot.
+
+
+<p float="center"> <img src="/models_using_MNIST/images/GAN/dcgan.gif" width="400" />      
+
 
 #### Run Example
 ```
