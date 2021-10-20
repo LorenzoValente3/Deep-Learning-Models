@@ -120,7 +120,7 @@ Below generated images over 500 epochs embedded in a _gif_ are reported and dist
 
 
 <p align="center">
- <img src="/models_using_MNIST/images/GAN/dcgan.gif" width="300" />   <img src="/models_using_MNIST/images/GAN/g_d_losses.png" width="300" /
+ <img src="/models_using_MNIST/images/GAN/dcgan.gif" width="300" />   <img src="/models_using_MNIST/images/GAN/g_d_losses.png" width="450" />
      
                                                                     
 </p>
