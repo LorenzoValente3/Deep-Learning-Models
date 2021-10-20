@@ -26,7 +26,7 @@ Models listed here are some cases simplified versions of the ones ultimately des
 
 ## About the Project
 The project is divided into two folders. 
-Each of them contains the models tailored to the different datasets they use. 
+Each of them contains the model implementations tailored to the different datasets they use. 
 
 ### Datasets
 #### 1. MNIST
@@ -49,7 +49,10 @@ The dataset _file.npy_ can be downloaded [here](https://drive.google.com/drive/f
 ### Autoencoder-MNIST
 Implementation of a simple _Autoencoder_ for the MNIST data and an autoencoder that is able to _classify_ data in its latent dimension is built as well.
 
-| Clustering of images in latent space                                                                                | Clustering with classifier  |
+#### Results 
+Distribution of labaled data in its two-latent dimension space is reported as well as 
+
+| Autoencoder without classifier                                                                               | Autoencoder with classifier  |
 | ------------------------------                                                                              | -------------------------   |
 |<p float="center"> <img src="/models_using_MNIST/images/AE/Latent dimension of Autoencoder without classifier.png" width="400" />                                   |           <img src="/models_using_MNIST/images/AE/Latent dimension of Autoencoder with classifier.png" width="400" />                                                                                                                                           |
 |  <img src="/models_using_MNIST/images/AE/Accuracy of Autoencoder without classifier.png" width="400" />    |<img src="/models_using_MNIST/images/AE/Accuracy of Autoencoder with classifier.png" width="400" />                                                                                             |
@@ -66,7 +69,16 @@ $ ipython AE.ipynb
 Implementation of _Variational Autoencoder_ and test it on the MNIST dataset. 
 The variational autoencoder able to _classify_ data in its data is built as well.
 
-| Clustering of images in latent space                                                                             | Clustering with classifier         |
+We have 'encoded_mean' and 'encoded_var' which we use for the sampling trick which help us to impose multi-gaussian distribution on the latent space.
+ We build the encoder in perfect analogy with the previous Autoencoder.
+ In this case we don't just have a latent dimension of two, but two Dense layers each one of dimension two (--> so for 2-dim latent space we need 2D mean and 2D var). 
+ A Lambda Layer is created, it takes both of the previous layers and measures them to the latent space dimension, via the self.sampling (reparametrization trick).
+ The sampling creates a structure that is a mixture of multiple gaussian distribution. in the end we spread out the standard normal distribution and shift the original mean.
+#### Results 
+
+
+
+| VAE without classifier                                                                            | VAE with classifier         |
 | ------------------------------                                                                      | -------------------------   |
 |<p float="center"> <img src="/models_using_MNIST/images/VAE/Latent dimension of Variational Autoencoder without classifier.png" width="400" />                                                                                                     |           <img src="/models_using_MNIST/images/VAE/Latent dimension of Variational Autoencoder with classifier.png" width="400" />                                                                                                                                   |
 |  <img src="/models_using_MNIST/images/VAE/Accuracy of Variational Autoencoder without classifier.png" width="400" />                                                                                                     |<img src="/models_using_MNIST/images/VAE/Accuracy of Variational Autoencoder with classifier.png" width="400" />                                                                         |
@@ -81,7 +93,11 @@ $ ipython VAE.ipynb
 [[Code]](models_using_MNIST/VAE.ipynb) [[Paper]](https://arxiv.org/abs/1312.6114)
 
 ### DCGAN-MNIST
-Implementation of _Deep Convolutional Generative Adversarial Network_.
+Implementation of _Deep Convolutional Generative Adversarial Network_ with a custom training loop that aims at generating MNIST samples.
+To address this task a GPU is used. 
+
+#### Results 
+Below generated images over 500 epochs embedded in a _gif_ are reported and distribution of Generator and Discriminator losses over each epochs are displayed in the plot.
 
 #### Run Example
 ```
