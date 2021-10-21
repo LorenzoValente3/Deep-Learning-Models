@@ -48,7 +48,7 @@ The dataset _polydata.npy_ can be downloaded [here](https://drive.google.com/dri
 ### Autoencoder-MNIST
 Implementation of a simple _Autoencoder_ for the MNIST data and an autoencoder that can _classify_ data in its latent dimension is built as well.
 
-#### Models 
+#### Model 
 
 The design implemented here uses an architecture in which a _bottleneck_ in the network is imposed
 It forces a compressed knowledge representation of the original input data.
@@ -78,7 +78,7 @@ $ ipython AE.ipynb
 Implementation of _Variational Autoencoder_ with factorized gaussian posteriors, <img src="https://render.githubusercontent.com/render/math?math=q_{\phi}(z|x ) = \mathcal{N}(z, \mu(x),diag(\sigma^{2}))"> and standard normal latent variables <img src="https://render.githubusercontent.com/render/math?math=p(z) =\mathcal{N}(0, I)">
 The variational autoencoder able to _classify_ data in its data is built as well.
 
-#### Models
+#### Model
 In contrast with the _Standard Autoencoder_, the final part of the *encoder* structure bottleneck has two Dense layers: `self.encoded_mean` and `self.encoded_var`.
 In this case, it is needed two-dimensional mean and variance as well.
 These two layers are used for the _sampling trick implementation_, which help us to impose multi-gaussian distribution on the latent space.  
@@ -115,7 +115,7 @@ $ ipython VAE.ipynb
 ### DCGAN-MNIST
 Implementation of _Deep Convolutional Generative Adversarial Network_ with a custom training loop that aims at generating MNIST samples. 
 
-#### Models
+#### Model
 A GAN's *discriminator* is simply a classifier. It attempts to distinguish between actual data in the dataset and data created by the generator.
 A GAN's *generator* learns to create fake data by incorporating feedback from the discriminator. It learns to make the discriminator classify its output as real.
 
@@ -133,7 +133,8 @@ For every training batch we calculate generator and discriminator loss and store
 
 
 #### Results 
-Below the generated images over 500 epochs embedded in a _gif_ is shown as well as the generator and discriminator losses stored during the training process.
+Below the generated images over 500 epochs embedded in a _gif_ is shown as well as the generator and discriminator training losses stored during the training process.
+From the plot below we can see how changes in loss decrease gradually and that loss becomes almost constant towards the end of training.
 
 
 <p align="center">
@@ -151,18 +152,25 @@ $ ipython DCGAN_mnist.ipynb
 <img src="./GANs_using_Polynomials/images/DCGAN/dcgan_poly.gif" align="right" width="150" height="auto"/>
 
 ### DCGAN-Polynomial
-Implementation of _Deep Convolutional Generative Adversarial Network_.
+Implementation of _Deep Convolutional Generative Adversarial Network_ with a custom training loop that aims at generating Polynomial data samples.
 
 #### Model
+Different implementation of the same DCGAN Model as before. 
+In this case the *generator* and *discriminator* model are tailored on a different dataset with different image size.
+The main difference with the previous implementation is the custom training function.
+In fact, in this implementation we loop the training step over the epochs and the losses are computed through the in-built function `model.train_on_batch` of the _models_ previously defined. 
 
 
 #### Results
+Below the generated images after 1000 epochs and original dataset are shown.
+The generator and discriminator training losses stored during the training process are plot as well.
+For this latter plot, we can see that no proper equilibrium between losses is reached, due to the great fluctuation in the values.
+This result suggests that the implementation needs to be improved.
 
 <p align="center">
  <img src="./GANs_using_Polynomials/images/DCGAN/generated.png" width="1000" />   <img src="./GANs_using_Polynomials/images/DCGAN/original.png" width="1000" /> 
                                                          
 </p>
-
 
 
 <p align="center">
