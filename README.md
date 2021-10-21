@@ -148,7 +148,7 @@ $ ipython DCGAN_mnist.ipynb
 ```
 [[Code]](models_using_MNIST/DCGAN_mnist.ipynb) [[Paper]](https://arxiv.org/abs/1511.06434)
 
-<img src="./GANs_using_Polynomials/images/DCGAN/dcgan_poly.gif" align="right" width="100" />
+<img src="./GANs_using_Polynomials/images/DCGAN/dcgan_poly.gif" align="right" width="200" />
 
 ### DCGAN-Polynomial
 Implementation of _Deep Convolutional Generative Adversarial Network_.
