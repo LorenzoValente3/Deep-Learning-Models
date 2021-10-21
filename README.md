@@ -158,14 +158,14 @@ Implementation of _Deep Convolutional Generative Adversarial Network_ with a cus
 Different implementation of the same DCGAN Model as before. 
 In this case the *generator* and *discriminator* model are tailored on a different dataset with different image size.
 The main difference with the previous implementation is the custom training function.
-In fact, in this implementation we loop the training step over the epochs and the losses are computed through the in-built function `model.train_on_batch` of the _models_ previously defined. 
+In fact, in this implementation we loop the training step over the epochs and the losses are computed through the in-built function `model.train_on_batch` of the _models_ defined. 
 
 
 #### Results
 Below the generated images after 1000 epochs and original dataset are shown.
 The generator and discriminator training losses stored during the training process are plot as well.
-For this latter plot, we can see that no proper equilibrium between losses is reached, due to the great fluctuation in the values.
-This result suggests that the implementation needs to be improved.
+For this latter plot, we can see that no proper equilibrium between generator and discriminator losses is reached, due to the great fluctuation in the discrimanator values.
+This result suggests that this implementation needs to be improved.
 
 <p align="center">
  <img src="./GANs_using_Polynomials/images/DCGAN/generated.png" width="1000" />   <img src="./GANs_using_Polynomials/images/DCGAN/original.png" width="1000" /> 
@@ -186,10 +186,37 @@ $ ipython DCGAN_poly.ipynb
 
 [[Code]](GANs_using_Polynomials/DCGAN_poly.ipynb) 
 
+<img src="./GANs_using_Polynomials/images/WGAN/dcgan_poly.gif" align="right" width="150" height="auto"/>
+
 ### WGAN-Polynomial
-Implementation of _Wasserstein Generative Adversarial Network_.
+Implementation of _Wasserstein Generative Adversarial Network_ with a custom training loop that aims at generating Polynomial data samples.
+
+#### Model
+This model applies a modification of the GAN scheme called _Wasserstein GAN_ in which in contrast with the previous DCGAN implementation, the discriminator does not classify instances.
+For this reason here the discriminator is actually called _critic_ it  tries to make the output bigger for real instances than for fake instances.
+
+The theoretical justification for the Wasserstein GAN (or WGAN) requires that the weights throughout the GAN be clipped so that they remain within a constrained range.
+
+Wasserstein GANs are less vulnerable to getting stuck than minimax-based GANs, and avoid problems with vanishing gradients. The earth mover distance also has the advantage of being a true metric: a measure of distance in a space of probability distributions. Cross-entropy is not a metric in this sense.
+
+*Critic Loss* it tries to maximize the difference between its output on real instances and its output on fake instances.
+*Generator Loss* tries to maximize the discriminator's output for its fake instances.
+
+#### Results
+
+
+<p align="center">
+ <img src="./GANs_using_Polynomials/images/WGAN/generated.png" width="1000" />   <img src="./GANs_using_Polynomials/images/WGAN/original.png" width="1000" /> 
+                                                         
+</p>
+
+<p align="center">
+ <img src="./GANs_using_Polynomials/images/WGAN/g_d_losses.png" width="400" />   
+                                                                        
+</p>
 
 #### Run Example
+
 ```
 $ cd GANs_using_Polynomials/
 $ ipython WGAN_poly.ipynb
