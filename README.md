@@ -186,7 +186,7 @@ $ ipython DCGAN_poly.ipynb
 
 [[Code]](GANs_using_Polynomials/DCGAN_poly.ipynb) 
 
-<img src="./GANs_using_Polynomials/images/WGAN/dcgan_poly.gif" align="right" width="150" height="auto"/>
+<img src="./GANs_using_Polynomials/images/WGAN/wgan_poly.gif" align="right" width="150" height="auto"/>
 
 ### WGAN-Polynomial
 Implementation of _Wasserstein Generative Adversarial Network_ with a custom training loop that aims at generating Polynomial data samples.
@@ -211,7 +211,7 @@ Wasserstein GANs are less vulnerable to getting stuck than minimax-based GANs, a
 </p>
 
 <p align="center">
- <img src="./GANs_using_Polynomials/images/WGAN/g_d_losses.png" width="400" />   
+ <img src="./GANs_using_Polynomials/images/WGAN/g_c_losses.png" width="400" />   
                                                                         
 </p>
 
