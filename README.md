@@ -203,7 +203,9 @@ Wasserstein GANs are less vulnerable to getting stuck than minimax-based GANs, a
 *Generator Loss* tries to maximize the discriminator's output for its fake instances.
 
 #### Results
-
+Below the generated images after 1000 epochs and original dataset are shown.
+The generator and critic training losses stored during the training process are plot as well.
+For this latter plot, we can see that the stability has increased with respect the previous implementation, due to the stability given by the new loss take into account.
 
 <p align="center">
  <img src="./GANs_using_Polynomials/images/WGAN/generated.png" width="1000" />   <img src="./GANs_using_Polynomials/images/WGAN/original.png" width="1000" /> 
