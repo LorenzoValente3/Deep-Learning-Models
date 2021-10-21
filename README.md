@@ -113,8 +113,7 @@ $ ipython VAE.ipynb
 [[Code]](models_using_MNIST/VAE.ipynb) [[Paper]](https://arxiv.org/abs/1312.6114)
 
 ### DCGAN-MNIST
-Implementation of _Deep Convolutional Generative Adversarial Network_ with a custom training loop that aims at generating MNIST samples.
-To run this program a GPU is used. 
+Implementation of _Deep Convolutional Generative Adversarial Network_ with a custom training loop that aims at generating MNIST samples. 
 
 #### Models
 A GAN's *discriminator* is simply a classifier. It attempts to distinguish between actual data in the dataset and data created by the generator.
@@ -134,7 +133,7 @@ For every training batch we calculate generator and discriminator loss and store
 
 
 #### Results 
-Below the generated images over 500 epochs embedded in a _gif_ is reported, as well as the generator and discriminator losses stored during the training process is plotted.
+Below the generated images over 500 epochs embedded in a _gif_ is shown as well as the generator and discriminator losses stored during the training process.
 
 
 <p align="center">
@@ -151,6 +150,17 @@ $ ipython DCGAN_mnist.ipynb
 
 ### DCGAN-Polynomial
 Implementation of _Deep Convolutional Generative Adversarial Network_.
+
+#### Model
+
+
+#### Results
+GANs_using_Polynomials\images\DCGAN
+<p align="center">
+ <img src="/GANs_using_Polynomials/images/DCGAN/generated.png" width="300" />   <img src="/GANs_using_Polynomials/images/DCGAN/original" width="300" /> 
+                                                                        
+</p>
+
 
 #### Run Example
 ```
