@@ -37,8 +37,8 @@ Each image is represented by 28x28 pixels, each value ranges from 0 to 255 and h
 The Polynomial database is a bi-dimensional contour plots dataset. 
 The [[class]](./GANs_using_Polynomials/POLY_dataset.py) implemented in this project includes 20000 samples showing polynomial up to a maximum degree (the fifth degree is taken into account as the maximum one here) in two variables.
 Each image is represented by 40x40 pixels for 1-channel. 
-An image of the dataset is shown below as an example.
-The dataset _file.npy_ can be downloaded [here](https://drive.google.com/drive/folders/13HlpRhNTrz7WK0NQnrNoA7BQTlPOXb3u?usp=sharing). 
+An image from the dataset is shown below as an example.
+The dataset _polydata.npy_ can be downloaded [here](https://drive.google.com/drive/folders/1cuoUMLsSAcC2y_7Xd593NiL-Pm2n6S39?usp=sharing). 
 
 <p align="center">
     <img src="GANs_using_Polynomials/images/DCGAN/contour.png" width="400"\>
@@ -48,7 +48,7 @@ The dataset _file.npy_ can be downloaded [here](https://drive.google.com/drive/f
 ### Autoencoder-MNIST
 Implementation of a simple _Autoencoder_ for the MNIST data and an autoencoder that can _classify_ data in its latent dimension is built as well.
 
-#### Model 
+#### Models 
 
 The design implemented here uses an architecture in which a _bottleneck_ in the network is imposed
 It forces a compressed knowledge representation of the original input data.
@@ -57,7 +57,8 @@ However, if some sort of structure exists in the data, this structure can be lea
 
 #### Results 
 The distribution of labelled data in its two-latent dimension space, as well as plots of model score losses, are shown below, for both models with and without the classifier.
-Looking at the distribution of images in the latent space, it is visible a linear behaviour. That happens because we have two dimensions to express a handwritten digit, it could happen that the height increases and the width increase as well, linearly as displayed. 
+Looking at the distribution of images in the latent space, it is visible a linear behaviour. 
+That happens because we have two dimensions to express a handwritten digit, it could happen that the height increases and the width increase as well, linearly as displayed. 
 Model losses score converges at high epochs.
 
 | Autoencoder without classifier                                                                               | Autoencoder with classifier  |
@@ -77,7 +78,7 @@ $ ipython AE.ipynb
 Implementation of _Variational Autoencoder_ with factorized gaussian posteriors, <img src="https://render.githubusercontent.com/render/math?math=q_{\phi}(z|x ) = \mathcal{N}(z, \mu(x),diag(\sigma^{2}))"> and standard normal latent variables <img src="https://render.githubusercontent.com/render/math?math=p(z) =\mathcal{N}(0, I)">
 The variational autoencoder able to _classify_ data in its data is built as well.
 
-#### Model 
+#### Models
 In contrast with the _Standard Autoencoder_, the final part of the *encoder* structure bottleneck has two Dense layers: `self.encoded_mean` and `self.encoded_var`.
 In this case, it is needed two-dimensional mean and variance as well.
 These two layers are used for the _sampling trick implementation_, which help us to impose multi-gaussian distribution on the latent space.  
@@ -113,16 +114,32 @@ $ ipython VAE.ipynb
 
 ### DCGAN-MNIST
 Implementation of _Deep Convolutional Generative Adversarial Network_ with a custom training loop that aims at generating MNIST samples.
-To address this task GPU is used. 
+To run this program a GPU is used. 
+
+#### Models
+A GAN's *discriminator* is simply a classifier. It attempts to distinguish between actual data in the dataset and data created by the generator.
+A GAN's *generator* learns to create fake data by incorporating feedback from the discriminator. It learns to make the discriminator classify its output as real.
+
+In our program, a dimension of 100 is given as noise dimension seed to allow the _generator model_ to generate new handwritten digits, starting from random input.
+
+A single measure of distance between probability distributions determines the *generator* and *discriminator losses*.
+The generator can only affect one term: the one that reflects the distribution of the _fake_ data.
+So, during generator training we drop the other term, which reflects the distribution of the _real_ data.
+Instead, the discriminator loss needs both the _real_ and _fake_ data to be computed. 
+Both of the losses are computed via the cross-entropy function between:
+real output (discriminator of real data) and fake output (discriminator of generated images) and ones/zeros according to the different cases.
+
+We loop over the epochs and over ever the batches.
+For every training batch we calculate generator and discriminator loss and store the recorded loss.
+
 
 #### Results 
-Below generated images over 500 epochs embedded in a _gif_ are reported and distribution of Generator and Discriminator losses over each epoch are displayed in the plot.
+Below the generated images over 500 epochs embedded in a _gif_ is reported, as well as the generator and discriminator losses stored during the training process is plotted.
 
 
 <p align="center">
  <img src="/models_using_MNIST/images/GAN/dcgan.gif" width="300" />   <img src="/models_using_MNIST/images/GAN/g_d_losses.png" width="450" />
-     
-                                                                    
+                                                                        
 </p>
 
 #### Run Example

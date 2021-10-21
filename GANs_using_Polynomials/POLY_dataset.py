@@ -16,7 +16,6 @@ class PolynomialData:
         self.num_polys = int( 60000 * data_fraction ) 
         self.maxdegree = maxdegree
         self.polydata = None
-        
 
     def polynomial(self, degree):
         """Evaluate polynomial over grid of size 40x40."""
@@ -31,11 +30,11 @@ class PolynomialData:
         self.polydata = tf.keras.utils.normalize(self.polydata)
     
     def save(self):
-        """Save data into an external file."""
+        """Save data into an external folder into a .npy file."""
         dir = os.path.join("dataset")
         if not os.path.exists(dir):
             os.mkdir(dir)
-        np.save('./polydata.npy', self.polydata)
+        np.save('./dataset/polydata.npy', self.polydata)
 
 if __name__ == '__main__':
     datap = PolynomialData()
