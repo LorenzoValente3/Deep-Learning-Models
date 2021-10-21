@@ -157,11 +157,14 @@ Implementation of _Deep Convolutional Generative Adversarial Network_.
 #### Results
 
 <p align="center">
- <img src="./GANs_using_Polynomials/images/DCGAN/generated.png" width="500" />   <img src="./GANs_using_Polynomials/images/DCGAN/original.png" width="500" /> 
- <img src="./GANs_using_Polynomials/images/DCGAN/g_d_losses.png" width="300" /> 
-                                                                        
+ <img src="./GANs_using_Polynomials/images/DCGAN/generated.png" width="700" />   <img src="./GANs_using_Polynomials/images/DCGAN/original.png" width="700" /> 
+                                                         
 </p>
 
+<p align="center">
+ <img src="./GANs_using_Polynomials/images/DCGAN/g_d_losses.png" width="300" />   <img src="./GANs_using_Polynomials/images/DCGAN/dcgan_poly.gif" width="450" />
+                                                                        
+</p>
 
 #### Run Example
 ```
