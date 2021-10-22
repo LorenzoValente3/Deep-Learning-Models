@@ -1,7 +1,7 @@
 # Deep Learning Models
 
 Collection of different Deep Learning models suggested in research papers, using [Keras](https://keras.io/).
-The implemented models are applied to the two different [datasets](#datasets). 
+We applied the models to two different [datasets](#datasets). 
 Models listed here are some cases simplified versions of the ones ultimately described in papers.
 
 ## Table of contents
@@ -24,19 +24,19 @@ Models listed here are some cases simplified versions of the ones ultimately des
     $ sudo pip3 install -r requirements.txt
 
 ## About the Project
-The project is divided into two folders. 
+Two folders hold the project. 
 Each of them contains the model implementations tailored to the different datasets they use. 
 
 ### Datasets
 #### 1. MNIST
 The [MNIST database](https://en.wikipedia.org/wiki/MNIST_database) is a handwritten digits dataset. 
 The [[class]](./models_using_MNIST/MNIST_dataset.py) implemented in this project includes 60.000 training samples and 10.000 test samples. 
-Each image is represented by 28x28 pixels, each value ranges from 0 to 255 and has a grayscale value.
+In each image, there are 28x28 pixels, each value ranging from 0 to 255 and a grayscale value.
 
 #### 2. Polynomial
 The Polynomial database is a bi-dimensional contour plots dataset. 
-The [[class]](./GANs_using_Polynomials/POLY_dataset.py) implemented in this project includes 20000 samples showing polynomial up to a maximum degree (the fifth degree is taken into account as the maximum one here) in two variables.
-Each image is represented by 40x40 pixels for 1-channel. 
+The [[class]](./GANs_using_Polynomials/POLY_dataset.py) implemented in this project includes 20000 samples showing polynomial up to a maximum degree (in this case, 5) in two variables.
+The size of each image is 40x40 pixels for a 1-channel. 
 An image from the dataset is shown below as an example.
 The dataset _polydata.npy_ can be downloaded [here](https://drive.google.com/drive/folders/1cuoUMLsSAcC2y_7Xd593NiL-Pm2n6S39?usp=sharing). 
 
@@ -52,15 +52,16 @@ Implementation of a simple _Autoencoder_ for the MNIST data and an autoencoder t
 
 The design implemented here uses an architecture in which a _bottleneck_ in the network is imposed.
 It forces a compressed knowledge representation of the original input data.
-in this implementation, a compression in its _two-dimensional latent space_ is considered.
+In this implementation, it is used compression in _two-dimensional latent space_.
 If the absence of structure in the data occurs, i.e. correlations between input features, compression and subsequent reconstruction would be very difficult. 
 However, if some sort of structure exists in the data, this structure can be learned and therefore leveraged when forcing the input through the bottleneck.
 
 #### Results 
-The distribution of labelled data in its two-latent dimension space, as well as plots of model score losses, are shown below, for both models with and without the classifier.
-Looking at the distribution of images in the latent space, it is visible a linear behaviour. 
-That happens because we have two dimensions to express a handwritten digit, it could happen that the height increases and the width increase as well, linearly as displayed. 
-Model losses score converges at high epochs.
+Below are plots of the distribution of labelled data in its two-latent dimension space as well as a plot of model score losses.
+The classifier has been considered both with and without the model.
+In the latent space, there is a _linear_ distribution of images. 
+This behaviour can be described by the fact that we have two dimensions to express a handwritten digit, then it could happen that the height increases and the width increase as well, linearly as displayed. 
+Model losses score converges at high epochs as expected.
 
 | Autoencoder without classifier                                                                               | Autoencoder with classifier  |
 | ------------------------------                                                                              | -------------------------   |
