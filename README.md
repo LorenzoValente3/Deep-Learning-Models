@@ -57,11 +57,11 @@ If the absence of structure in the data occurs, i.e. correlations between input 
 However, if some sort of structure exists in the data, this structure can be learned and therefore leveraged when forcing the input through the bottleneck.
 
 #### Results 
-Below are plots of the distribution of labelled data in its two-latent dimension space as well as a plot of model score losses.
-The classifier has been considered both with and without the model.
-In the latent space, there is a _linear_ distribution of images. 
+Below are plots of the distribution of labelled data in its two-latent dimension space as well as plots of model score losses.
+The model has been considered both with and without the classifier for the decompression.
+In the latent space, it can be noticed a _linear_ distribution of images. 
 This behaviour can be described by the fact that we have two dimensions to express a handwritten digit, then it could happen that the height increases and the width increase as well, linearly as displayed. 
-Model losses score converges at high epochs as expected.
+Model score losses converge at high epochs as expected.
 
 | Autoencoder without classifier                                                                               | Autoencoder with classifier  |
 | ------------------------------                                                                              | -------------------------   |
@@ -77,28 +77,24 @@ $ ipython AE.ipynb
 [[Code]](models_using_MNIST/AE.ipynb)
 
 ### Variational Autoencoder-MNIST
-Implementation of _Variational Autoencoder_ with factorized gaussian posteriors, <img src="https://render.githubusercontent.com/render/math?math=q_{\phi}(z|x ) = \mathcal{N}(z, \mu(x),diag(\sigma^{2}))"> and standard normal latent variables <img src="https://render.githubusercontent.com/render/math?math=p(z) =\mathcal{N}(0, I)">
-The variational autoencoder able to _classify_ data in its data is built as well.
+Implementation of _Variational Autoencoder_ with factorized Gaussian posteriors, <img src="https://render.githubusercontent.com/render/math?math=q_{\phi}(z|x ) = \mathcal{N}(z, \mu(x),diag(\sigma^{2}))"> and standard normal latent variables <img src="https://render.githubusercontent.com/render/math?math=p(z) =\mathcal{N}(0, I)">.
+The variational autoencoder able to _classify_ data in its latent dimension is built as well. 
 
 #### Model
-In contrast with the _Standard Autoencoder_, the final part of the *encoder* structure bottleneck has two Dense layers: `self.encoded_mean` and `self.encoded_var`.
-In this case, it is needed two-dimensional mean and variance as well.
-These two layers are used for the _sampling trick implementation_, which help us to impose multi-gaussian distribution on the latent space.  
+In contrast with the previous _Standard Autoencoder_, the final part of the *encoder* structure bottleneck has two Dense layers: `self.encoded_mean` and `self.encoded_var`, respectively.
+In this case, we need a two-dimensional mean and variance as well.These two layers are used for the *sampling trick implementation*, which help us to impose multi-gaussian distribution on the latent space.  
 A `Lambda Layer` is created.
-It takes both of the previous layers and measures them to the latent space dimension, via the `self.sampling` function (_Reparametrization trick_).
+It takes both of the previous two layers and measures them to the latent space dimension, via the `self.sampling` implemented function (_Reparametrization trick_).
 The sampling creates a structure that is a mixture of multiple Gaussian distributions. 
-The remaining part of the encoder architecture is built in perfect analogy with the previous standard autoencoder.
-
-_Decoder_ architecture is perfectly analogous with the decoder of the standard autoencoder one.
+The remaining part of the encoder architecture is built in perfect analogy with the previous standard autoencoder as well as the _Decoder_ architecture.
 
 #### Results 
-As for the previous implementation, the distribution of labelled data in its two-latent dimension space, as well as plots of model score losses, are reported below, for both models with and without the classifier.
-
+In analogy with the previous implementation, below are plots of the distribution of labelled data in its two-latent dimension space as well as plots of model score losses.
+The model has been considered both with and without the classifier for the decompression part.
 To visualize the results in the latent space the model for the encoder structure is built.
-In this case, the distribution of images in latent space is no more linear, but point clouds. 
-This happens because we impose a gaussian mixture model on the latent space and as is expected, we have k-different point clouds, that represents one digit each.
-
-
+In this case, the distribution of images in latent space is no more linear, but _point clouds_. 
+This happens because we impose a Gaussian mixture model on the latent space and as is expected, we have K-different point clouds, that represents one digit each.
+Model score losses converge at high epochs as expected.
 
 | VAE without classifier                                                                            | VAE with classifier         |
 | ------------------------------                                                                      | -------------------------   |
