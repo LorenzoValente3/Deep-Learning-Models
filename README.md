@@ -50,8 +50,9 @@ Implementation of a simple _Autoencoder_ for the MNIST data and an autoencoder t
 
 #### Model 
 
-The design implemented here uses an architecture in which a _bottleneck_ in the network is imposed
+The design implemented here uses an architecture in which a _bottleneck_ in the network is imposed.
 It forces a compressed knowledge representation of the original input data.
+in this implementation, a compression in its _two-dimensional latent space_ is considered.
 If the absence of structure in the data occurs, i.e. correlations between input features, compression and subsequent reconstruction would be very difficult. 
 However, if some sort of structure exists in the data, this structure can be learned and therefore leveraged when forcing the input through the bottleneck.
 
@@ -123,13 +124,13 @@ In our program, a dimension of 100 is given as noise dimension seed to allow the
 
 A single measure of distance between probability distributions determines the *generator* and *discriminator losses*.
 The generator can only affect one term: the one that reflects the distribution of the _fake_ data.
-So, during generator training we drop the other term, which reflects the distribution of the _real_ data.
+So, during generator training, we drop the other term, which reflects the distribution of the _real_ data.
 Instead, the discriminator loss needs both the _real_ and _fake_ data to be computed. 
 Both of the losses are computed via the cross-entropy function between:
 real output (discriminator of real data) and fake output (discriminator of generated images) and ones/zeros according to the different cases.
 
 We loop over the epochs and over ever the batches.
-For every training batch we calculate generator and discriminator loss and store the recorded loss.
+For every training batch, we calculate generator and discriminator loss and store the recorded loss.
 
 
 #### Results 
@@ -155,16 +156,16 @@ $ ipython DCGAN_mnist.ipynb
 Implementation of _Deep Convolutional Generative Adversarial Network_ with a custom training loop that aims at generating Polynomial data samples.
 
 #### Model
-Different implementation of the same DCGAN Model as before. 
-In this case the *generator* and *discriminator* model are tailored on a different dataset with different image size.
+A different implementation of the same DCGAN Model as before. 
+In this case, the *generator* and *discriminator* models are tailored on a different dataset with different image sizes.
 The main difference with the previous implementation is the custom training function.
-In fact, in this implementation we loop the training step over the epochs and the losses are computed through the in-built function `model.train_on_batch` of the _models_ defined. 
+In fact, in this implementation, we loop the training step over the epochs and the losses are computed through the in-built function `model.train_on_batch` of the _models_ defined. 
 
 
 #### Results
-Below the generated images after 1000 epochs and original dataset are shown.
-The generator and discriminator training losses stored during the training process are plot as well.
-For this latter plot, we can see that no proper equilibrium between generator and discriminator losses is reached, due to the great fluctuation in the discrimanator values.
+Below the generated images after 1000 epochs and the original dataset are shown.
+The generator and discriminator training losses stored during the training process are plotted as well.
+For this latter plot, we can see that no proper equilibrium between generator and discriminator losses is reached, due to the great fluctuation in the discriminator values.
 This result suggests that this implementation needs to be improved.
 
 <p align="center">
@@ -193,19 +194,19 @@ Implementation of _Wasserstein Generative Adversarial Network_ with a custom tra
 
 #### Model
 This model applies a modification of the GAN scheme called _Wasserstein GAN_ in which in contrast with the previous DCGAN implementation, the discriminator does not classify instances.
-For this reason here the discriminator is actually called _critic_ it  tries to make the output bigger for real instances than for fake instances.
+For this reason here the discriminator is actually called _critic_ it tries to make the output bigger for real instances than for fake instances.
 
 The theoretical justification for the Wasserstein GAN (or WGAN) requires that the weights throughout the GAN be clipped so that they remain within a constrained range.
 
-Wasserstein GANs are less vulnerable to getting stuck than minimax-based GANs, and avoid problems with vanishing gradients. The earth mover distance also has the advantage of being a true metric: a measure of distance in a space of probability distributions. Cross-entropy is not a metric in this sense.
+Wasserstein GANs are less vulnerable to getting stuck than minimax-based GANs and avoid problems with vanishing gradients. The earth mover distance also has the advantage of being a true metric: a measure of distance in a space of probability distributions. Cross-entropy is not a metric in this sense.
 
 *Critic Loss* it tries to maximize the difference between its output on real instances and its output on fake instances.
 *Generator Loss* tries to maximize the discriminator's output for its fake instances.
 
 #### Results
-Below the generated images after 1000 epochs and original dataset are shown.
-The generator and critic training losses stored during the training process are plot as well.
-For this latter plot, we can see that the stability has increased with respect the previous implementation, due to the stability given by the new loss take into account.
+Below the generated images after 1000 epochs and the original dataset are shown.
+The generator and critic training losses stored during the training process are plotted as well.
+For this latter plot, we can see that the stability has increased with respect to the previous implementation, due to the stability given by the new loss taken into account.
 
 <p align="center">
  <img src="./GANs_using_Polynomials/images/WGAN/generated.png" width="1000" />   <img src="./GANs_using_Polynomials/images/WGAN/original.png" width="1000" /> 
