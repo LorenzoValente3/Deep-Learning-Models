@@ -117,23 +117,23 @@ Implementation of _Deep Convolutional Generative Adversarial Network_ with a cus
 A GAN's *discriminator* is simply a classifier. It attempts to distinguish between actual data in the dataset and data created by the generator.
 A GAN's *generator* learns to create fake data by incorporating feedback from the discriminator. It learns to make the discriminator classify its output as real.
 
-In our program, a dimension of 100 is given as noise dimension seed to allow the _generator model_ to generate new handwritten digits, starting from random input.
+In this implementation, a hundred dimension is given as noise dimension seed to allow the _generator model_ to generate new handwritten digits, starting from random input.
 
 A single measure of distance between probability distributions determines the *generator* and *discriminator losses*.
-The generator can only affect one term: the one that reflects the distribution of the _fake_ data.
-So, during generator training, we drop the other term, which reflects the distribution of the _real_ data.
-Instead, the discriminator loss needs both the _real_ and _fake_ data to be computed. 
+The generator can only be affected by the term that represents the distribution of _fake_ data.
+Therefore, during generator training, we drop the term reflecting the distribution of _real_ data.
+Instead, the discriminator loss is computed using both the _real_ and _fake_ data.  
 Both of the losses are computed via the cross-entropy function between:
-real output (discriminator of real data) and fake output (discriminator of generated images) and ones/zeros according to the different cases.
-
-We loop over the epochs and over ever the batches.
-For every training batch, we calculate generator and discriminator loss and store the recorded loss.
+* real output, i.e. discriminator of real data;
+* fake output, i.e. discriminator of generated images 
+* ones/zeros-like tensor, according to the different cases.
+We loop over the epochs and every batch.
+For every training batch, we calculate generator and discriminator loss and store the record.
 
 
 #### Results 
 Below the generated images over 500 epochs embedded in a _gif_ is shown as well as the generator and discriminator training losses stored during the training process.
-From the plot below we can see how changes in loss decrease gradually and that loss becomes almost constant towards the end of training.
-
+From the plot we can see how changes in loss fluctuation decrease gradually and that loss becomes almost constant towards the end of training.
 
 <p align="center">
  <img src="/models_using_MNIST/images/GAN/dcgan.gif" width="300" />   <img src="/models_using_MNIST/images/GAN/g_d_losses.png" width="450" />
