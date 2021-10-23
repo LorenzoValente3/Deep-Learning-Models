@@ -127,7 +127,7 @@ Instead, the discriminator loss is computed using both the _real_ and _fake_ dat
 Both of the losses are computed via the cross-entropy function between:
 * real output, i.e. discriminator of real data,
 * fake output, i.e. discriminator of generated images, 
-* ones and zeros-like tensor labels, when we consider real or fake images respectively.
+* ones or zeros-like tensor labels, when we consider real or fake images respectively.
 
 We then loop over the epochs and every batch.
 For every training batch, we calculate generator and discriminator loss and store the record.
