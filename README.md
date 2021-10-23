@@ -195,7 +195,7 @@ It tries to make the output bigger for real instances than for fake instances, i
 * *Critic Loss* tries to maximize the difference between its output on real instances and its output on fake instances.
 * *Generator Loss* tries to maximize the discriminator's output for its fake instances.
 
-Other important differences with the previous DCGAN are that now we use -ones and ones-like tensor labels for real and fake images, instead of ones and zeros and the _RMSProp_ version of gradient descent with a small learning rate and no momentum is considered. 
+Other important differences with the previous DCGAN are that now we use minus ones and ones-like tensor labels for real and fake images, instead of ones and zeros and the _RMSProp_ version of gradient descent with a small learning rate and no momentum is considered. 
 
 The theoretical justification for the Wasserstein GAN requires that the weights throughout the GAN be _clipped_ so that they remain within a constrained range after each mini batch update.
 In principle, Wasserstein GANs are less vulnerable to getting stuck than standard-based GANs and avoid problems with vanishing gradients. 
