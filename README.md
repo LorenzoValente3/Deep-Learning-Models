@@ -46,7 +46,7 @@ The dataset _polydata.npy_ can be downloaded [here](https://drive.google.com/dri
 
 ## Implementations 
 ### Autoencoder-MNIST
-Implementation of a simple _Autoencoder_ for the MNIST data and an autoencoder that can _classify_ data in its latent dimension is built as well.
+Implementation of a simple _Autoencoder_ (AE) for the MNIST data and an autoencoder that can _classify_ data in its latent dimension is built as well.
 
 #### Model 
 
@@ -77,7 +77,7 @@ $ ipython AE.ipynb
 [[Code]](models_using_MNIST/AE.ipynb)
 
 ### Variational Autoencoder-MNIST
-Implementation of _Variational Autoencoder_ with factorized Gaussian posteriors, <img src="https://render.githubusercontent.com/render/math?math=q_{\phi}(z|x ) = \mathcal{N}(z, \mu(x),diag(\sigma^{2}))"> and standard normal latent variables <img src="https://render.githubusercontent.com/render/math?math=p(z) =\mathcal{N}(0, I)">.
+Implementation of _Variational Autoencoder_ (VAE) with factorized Gaussian posteriors, <img src="https://render.githubusercontent.com/render/math?math=q_{\phi}(z|x ) = \mathcal{N}(z, \mu(x),diag(\sigma^{2}))"> and standard normal latent variables <img src="https://render.githubusercontent.com/render/math?math=p(z) =\mathcal{N}(0, I)">.
 The variational autoencoder able to _classify_ data in its latent dimension is built as well. 
 
 #### Model
@@ -111,7 +111,7 @@ $ ipython VAE.ipynb
 [[Code]](models_using_MNIST/VAE.ipynb) [[Paper]](https://arxiv.org/abs/1312.6114)
 
 ### DCGAN-MNIST
-Implementation of _Deep Convolutional Generative Adversarial Network_ with a custom training loop that aims at generating MNIST samples. 
+Implementation of _Deep Convolutional Generative Adversarial Network_ (DCGAN) with a custom training loop that aims at generating MNIST samples. 
 
 #### Model
 A GAN's *discriminator* is simply a classifier. It attempts to distinguish between actual data in the dataset and data created by the generator.
@@ -122,11 +122,12 @@ In this implementation, a hundred dimension is given as noise dimension seed to 
 A single measure of distance between probability distributions determines the *generator* and *discriminator losses*.
 The generator can only be affected by the term that represents the distribution of _fake_ data.
 Therefore, during generator training, we drop the term reflecting the distribution of _real_ data.
+The _Adam_ optimizer with small learning rate is considered as version of gradient descend.
 Instead, the discriminator loss is computed using both the _real_ and _fake_ data.  
 Both of the losses are computed via the cross-entropy function between:
 * real output, i.e. discriminator of real data,
 * fake output, i.e. discriminator of generated images, 
-* ones/zeros-like tensor, according to the different cases.
+* ones and zeros-like tensor labels, when we consider real or fake images respectively.
 
 We then loop over the epochs and every batch.
 For every training batch, we calculate generator and discriminator loss and store the record.
@@ -154,7 +155,7 @@ Implementation of _Deep Convolutional Generative Adversarial Network_ with a cus
 
 #### Model
 A different implementation of the  _DCGAN model_. 
-In this case, the *generator* and *discriminator* models are adapted on a different dataset with different image sizes, as previously [described](#datasets).
+In this case, the *generator* and *discriminator* models are adapted on a different dataset with different image sizes, as previously described.
 The main difference with the previous implementation is the custom training function: we use the in-built *model.train_on_batch* method from the _models_ defined beforehand, and then we loop the training step over the epochs and compute the losses. 
 
 #### Results
@@ -185,23 +186,26 @@ $ ipython DCGAN_poly.ipynb
 <img src="./GANs_using_Polynomials/images/WGAN/wgan_poly.gif" align="right" width="150" height="auto"/>
 
 ### WGAN-Polynomial
-Implementation of _Wasserstein Generative Adversarial Network_ with a custom training loop that aims at generating Polynomial data samples.
+Implementation of _Wasserstein Generative Adversarial Network_ (WGAN) with a custom training loop that aims at generating Polynomial data samples.
 
 #### Model
-This model applies a modification of the GAN scheme called _Wasserstein GAN_ in which in contrast with the previous DCGAN implementation, the discriminator does not classify instances.
-For this reason here the discriminator is actually called _critic_ it tries to make the output bigger for real instances than for fake instances.
+This model applies a modification of the standard GAN scheme, called _Wasserstein GAN_ in which in contrast with the DCGAN discussed before, the discriminator does not proper classify instances.
+For this reason, the discriminator is now called *Critic*. 
+It tries to make the output bigger for real instances than for fake instances, in particular: 
+* *Critic Loss* tries to maximize the difference between its output on real instances and its output on fake instances.
+* *Generator Loss* tries to maximize the discriminator's output for its fake instances.
 
-The theoretical justification for the Wasserstein GAN (or WGAN) requires that the weights throughout the GAN be clipped so that they remain within a constrained range.
+Other important differences with the previous DCGAN are that now we use -ones and ones-like tensor labels for real and fake images, instead of ones and zeros and the _RMSProp_ version of gradient descent with a small learning rate and no momentum is considered. 
 
-Wasserstein GANs are less vulnerable to getting stuck than minimax-based GANs and avoid problems with vanishing gradients. The earth mover distance also has the advantage of being a true metric: a measure of distance in a space of probability distributions. Cross-entropy is not a metric in this sense.
-
-*Critic Loss* it tries to maximize the difference between its output on real instances and its output on fake instances.
-*Generator Loss* tries to maximize the discriminator's output for its fake instances.
+The theoretical justification for the Wasserstein GAN requires that the weights throughout the GAN be _clipped_ so that they remain within a constrained range after each mini batch update.
+In principle, Wasserstein GANs are less vulnerable to getting stuck than standard-based GANs and avoid problems with vanishing gradients. 
+The _earth mover distance_ (wasserstein distance) also has the advantage of being a _true metric_, i.e. a measure of distance in a space of probability distributions. 
+Cross-entropy considered as loss before, is not a metric in this sense.
 
 #### Results
 Below the generated images after 1000 epochs and the original dataset are shown.
 The generator and critic training losses stored during the training process are plotted as well.
-For this latter plot, we can see that the stability has increased with respect to the previous implementation, due to the stability given by the new loss taken into account.
+For this latter plot, we can see that the stability has increased with respect to the previous implementation, due to the stability given by the new metric.
 
 <p align="center">
  <img src="./GANs_using_Polynomials/images/WGAN/generated.png" width="1000" />   <img src="./GANs_using_Polynomials/images/WGAN/original.png" width="1000" /> 
