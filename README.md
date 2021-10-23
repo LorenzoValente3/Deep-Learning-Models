@@ -189,23 +189,23 @@ $ ipython DCGAN_poly.ipynb
 Implementation of _Wasserstein Generative Adversarial Network_ (WGAN) with a custom training loop that aims at generating Polynomial data samples.
 
 #### Model
-This model applies a modification of the standard GAN scheme, called _Wasserstein GAN_ in which in contrast with the DCGAN discussed before, the discriminator does not proper classify instances.
-For this reason, the discriminator is now called *Critic*. 
+In contrast to the DCGAN discussed above, this model applies a variation of the standard GAN called _Wasserstein GAN_, in which the discriminator does not properly classify instances.
+For this reason, the discriminator is now called *critic*. 
 It tries to make the output bigger for real instances than for fake instances, in particular: 
-* *Critic Loss* tries to maximize the difference between its output on real instances and its output on fake instances.
-* *Generator Loss* tries to maximize the discriminator's output for its fake instances.
+* the *critic loss* tries to maximise the difference between the output on real instances and the output on fake instances.
+* the *generator loss* tries to maximize the discriminator's output for its fake instances.
 
-Other important differences with the previous DCGAN are that now we use minus ones and ones-like tensor labels for real and fake images, instead of ones and zeros and the _RMSProp_ version of gradient descent with a small learning rate and no momentum is considered. 
+Our new WGAN uses minus-one and one-like tensor labels for real and fake images, instead of ones and zeros, as well as the _RMSProp_ version of gradient descent with a small learning rate and no momentum. 
 
-The theoretical justification for the Wasserstein GAN requires that the weights throughout the GAN be _clipped_ so that they remain within a constrained range after each mini batch update.
-In principle, Wasserstein GANs are less vulnerable to getting stuck than standard-based GANs and avoid problems with vanishing gradients. 
-The _earth mover distance_ (wasserstein distance) also has the advantage of being a _true metric_, i.e. a measure of distance in a space of probability distributions. 
-Cross-entropy considered as loss before, is not a metric in this sense.
+Wasserstein GANs are theoretically justified by requiring their weights _clipped_,  so they remain within a constrained range after each mini-batch update.
+Generally, Wasserstein GANs are less susceptible to getting stuck and avoid vanishing gradient problems. 
+ In addition, the _earth mover distance_ has the advantage of being a _true metric_, i.e. a measure of distance in probability space of distributions. 
+Cross-entropy considered as loss before is not a metric in this sense.
 
 #### Results
 Below the generated images after 1000 epochs and the original dataset are shown.
 The generator and critic training losses stored during the training process are plotted as well.
-For this latter plot, we can see that the stability has increased with respect to the previous implementation, due to the stability given by the new metric.
+For this latter plot, we can see that the stability has increased concerning the previous implementation, due to the stability given by the new metric.
 
 <p align="center">
  <img src="./GANs_using_Polynomials/images/WGAN/generated.png" width="1000" />   <img src="./GANs_using_Polynomials/images/WGAN/original.png" width="1000" /> 
