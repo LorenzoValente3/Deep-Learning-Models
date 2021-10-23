@@ -124,12 +124,12 @@ The generator can only be affected by the term that represents the distribution 
 Therefore, during generator training, we drop the term reflecting the distribution of _real_ data.
 Instead, the discriminator loss is computed using both the _real_ and _fake_ data.  
 Both of the losses are computed via the cross-entropy function between:
-* real output, i.e. discriminator of real data;
-* fake output, i.e. discriminator of generated images 
+* real output, i.e. discriminator of real data,
+* fake output, i.e. discriminator of generated images, 
 * ones/zeros-like tensor, according to the different cases.
-We loop over the epochs and every batch.
-For every training batch, we calculate generator and discriminator loss and store the record.
 
+We then loop over the epochs and every batch.
+For every training batch, we calculate generator and discriminator loss and store the record.
 
 #### Results 
 Below the generated images over 500 epochs embedded in a _gif_ is shown as well as the generator and discriminator training losses stored during the training process.
@@ -153,16 +153,14 @@ $ ipython DCGAN_mnist.ipynb
 Implementation of _Deep Convolutional Generative Adversarial Network_ with a custom training loop that aims at generating Polynomial data samples.
 
 #### Model
-A different implementation of the same DCGAN Model as before. 
-In this case, the *generator* and *discriminator* models are tailored on a different dataset with different image sizes.
-The main difference with the previous implementation is the custom training function.
-In fact, in this implementation, we loop the training step over the epochs and the losses are computed through the in-built function `model.train_on_batch` of the _models_ defined. 
-
+A different implementation of the  _DCGAN model_. 
+In this case, the *generator* and *discriminator* models are adapted on a different dataset with different image sizes, as previously [described](#datasets).
+The main difference with the previous implementation is the custom training function: we use the in-built *model.train_on_batch* method from the _models_ defined beforehand, and then we loop the training step over the epochs and compute the losses. 
 
 #### Results
-Below the generated images after 1000 epochs and the original dataset are shown.
-The generator and discriminator training losses stored during the training process are plotted as well.
-For this latter plot, we can see that no proper equilibrium between generator and discriminator losses is reached, due to the great fluctuation in the discriminator values.
+Below are shown the generated images after 1000 epochs and the original dataset as well.
+The generator and discriminator training losses stored during the training process are plots.
+Due to the large fluctuations in the discriminator values, we can not observe an equilibrium between generator and discriminator losses.
 This result suggests that this implementation needs to be improved.
 
 <p align="center">
