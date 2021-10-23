@@ -192,7 +192,7 @@ Implementation of _Wasserstein Generative Adversarial Network_ (WGAN) with a cus
 In contrast to the DCGAN discussed above, this model applies a variation of the standard GAN called _Wasserstein GAN_, in which the discriminator does not properly classify instances.
 For this reason, the discriminator is now called *critic*. 
 It tries to make the output bigger for real instances than for fake instances, in particular: 
-* the *critic loss* tries to maximise the difference between the output on real instances and the output on fake instances.
+* the *critic loss* tries to maximise the difference between the output on real instances and the output on fake instances,
 * the *generator loss* tries to maximize the discriminator's output for its fake instances.
 
 Our new WGAN uses minus-one and one-like tensor labels for real and fake images, instead of ones and zeros, as well as the _RMSProp_ version of gradient descent with a small learning rate and no momentum. 
