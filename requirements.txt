@@ -1,15 +1,10 @@
-#AE and VAE
 keras
 tensorflow
 matplotlib
 numpy
-matplotlib
-os
-
-#GANs
-git+https://github.com/tensorflow/docs 
+os-sys
+git+https://www.github.com/tensorflow/docs.git 
 imageio
-glob
-PIL
-time
-IPython
+glob2
+Pillow
+ipython
