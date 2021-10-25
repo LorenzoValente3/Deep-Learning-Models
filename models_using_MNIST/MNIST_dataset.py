@@ -14,7 +14,8 @@ import tensorflow as tf
 # +------------------+
 
 class MNISTData:
-    """MNIST data class."""
+    """MNIST data class. You can adjust the data_fraction to use when creating
+    the data, according to your system capabilities."""
 
     def __init__(self, gan=False, data_fraction=1.):
         data = mnist
