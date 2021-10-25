@@ -41,7 +41,7 @@ An image from the dataset is shown below as an example.
 The dataset _polydata.npy_ can be downloaded [here](https://drive.google.com/drive/folders/1cuoUMLsSAcC2y_7Xd593NiL-Pm2n6S39?usp=sharing). 
 
 <p align="center">
-    <img src="GANs_using_Polynomials/images/DCGAN/contour.png" width="400"\>
+    <img src="GANs_using_Polynomials/images/DCGAN/contour.png" width="375"\>
 </p>
 
 ## Implementations 
