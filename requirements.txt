@@ -2,7 +2,7 @@ keras
 tensorflow
 matplotlib
 numpy
-os-sys
+os_sys
 git+https://www.github.com/tensorflow/docs.git 
 imageio
 glob2
