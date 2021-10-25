@@ -1,8 +1,8 @@
 # Deep Learning Models
 
-Collection of different Deep Learning models suggested in research papers, using [Keras](https://keras.io/).
-We applied the models to two different [datasets](#datasets). 
-Models listed here are some cases simplified versions of the ones ultimately described in papers.
+Collection of different Deep Learning models presented in previously published research papers, using [Keras](https://keras.io/).
+These are applied to two different [datasets](#datasets). 
+The models listed are simplified versions of the ones ultimately described in papers.
 
 ## Table of contents
 - [Installation](#installation)
@@ -24,8 +24,7 @@ Models listed here are some cases simplified versions of the ones ultimately des
     $ sudo pip3 install -r requirements.txt
 
 ## About the Project
-Two folders hold the project. 
-Each of them contains the model implementations tailored to the different datasets they use. 
+The project is comprised in two folders, each of them contains the model implementations tailored to the different datasets they use. 
 
 ### Datasets
 #### 1. MNIST
@@ -46,21 +45,22 @@ The dataset _polydata.npy_ can be downloaded [here](https://drive.google.com/dri
 
 ## Implementations 
 ### Autoencoder-MNIST
-Implementation of a simple _Autoencoder (AE)_ for the MNIST data and an autoencoder that can _classify_ data in its latent dimension is built too.
+Construction of an implementation system of a simple _Autoencoder (AE)_ both for the MNIST data and for data _classification_ in its latent dimension.
 
 #### Model 
 
-The design implemented here uses an architecture in which is imposed a _bottleneck_ in the network.
+The design implemented uses an architecture which imposes a _bottleneck_ on the network.
 It forces a compressed knowledge representation of the original input data.
 In this implementation, it is used compression in _two-dimensional latent space_.
 Compression and reconstruction are extremely demanding if there is no structure in the data, i.e. no correlation between input features. 
-However, if some sort of structure exists in the data, this structure can be learned and applied when forcing the input through the bottleneck.
+However, if some sort of structure exists in the data, it can be learned and applied when forcing the input through the bottleneck.
 
 #### Results 
 Plotted below are the distribution of labelled data in its two-latent dimension space, as well as model score losses.
 The model has been considered both with and without the classifier for the decompression.
 In the latent space, we notice a _linear_ distribution of images. 
-This behaviour describes the fact that we have two dimensions to express a handwritten digit, then it could happen that the height increases and the width increase as well, linearly as displayed. 
+This behaviour describes the fact that we have two dimensions to express a handwritten digit.
+Then it could happen for certain digit that the height increases and the width increases as well, creating a linear shape in the latent space, as displayed. 
 Model score losses converge at high epochs as expected.
 
 | Autoencoder without classifier                                                                               | Autoencoder with classifier  |
@@ -84,17 +84,17 @@ Additionally, a variational autoencoder capable of _classifying_ data in its lat
 In contrast with the previous _Standard Autoencoder_, the final part of the *encoder* structure bottleneck has two Dense layers: `self.encoded_mean` and `self.encoded_var`, respectively.
 In this case, we need a two-dimensional mean and variance as well. 
 These two layers are used for the *sampling trick implementation*, which help us to impose multi-gaussian distribution on the latent space.  
-A `Lambda Layer` is created.
-It takes both of the previous two layers and measures them to the latent space dimension, via the `self.sampling` implemented function (_Reparametrization trick_).
+A `Lambda Layer` is created. 
+It takes both of the previous two dense layers and measures them to the latent space dimension, via the `self.sampling` implemented function (_Reparametrization trick_).
 The sampling creates a structure that is a mixture of multiple Gaussian distributions. 
-The remaining part of the encoder architecture is built in perfect analogy with the previous standard autoencoder as well as the _Decoder_ architecture.
+The remaining part of the encoder architecture is built in perfect analogy with the previous standard autoencoder as well as the _decoder_ architecture.
 
 #### Results 
 In analogy with the previous implementation, plotted below are the distribution of labelled data in its two-latent dimension space, as well as model score losses.
-The model has been considered both with and without the classifier for the decompression part.
-To visualize the results in the latent space model for the encoder structure is built.
+To visualize the results in the latent space, an encoder model structure has been built.
+The model implemented has been considered both with and without the classifier for the decompression part.
 In this case, the distribution of images in latent space is _point clouds_. 
-The reason for this is that we apply a Gaussian mixture model to the latent space, resulting in K-different point clouds that represent one digit each.
+This is because we apply a Gaussian mixture model to the latent space, resulting in K-different point clouds that represent one digit each.
 Model score losses converge at high epochs as expected.
 
 | VAE without classifier                                                                            | VAE with classifier         |
@@ -112,10 +112,11 @@ $ ipython VAE.ipynb
 [[Code]](models_using_MNIST/VAE.ipynb) [[Paper]](https://arxiv.org/abs/1312.6114)
 
 ### DCGAN-MNIST
-Implementation of _Deep Convolutional Generative Adversarial Network (DCGAN)_  with a custom training loop aims at generating MNIST samples. 
+Implementation of _Deep Convolutional Generative Adversarial Network (DCGAN)_  with a custom training loop aims generating MNIST samples. 
 
 #### Model
-A GAN's *discriminator* is simply a classifier. It attempts to distinguish between actual data in the dataset and data created by the generator.
+A GAN's *discriminator* is simply a classifier. 
+It attempts to distinguish between actual data in the dataset and data created by the generator.
 A GAN's *generator* learns to create fake data by incorporating feedback from the discriminator. 
 It learns to make the discriminator classify its output as real.
 
@@ -135,7 +136,7 @@ We then loop over the epochs and every batch.
 For every training batch, we calculate generator and discriminator loss and store the record.
 
 #### Results 
-Presented below are the generated images over 500 epochs embedded in a _GIF_  and the generator and discriminator training losses stored during the training process as well.
+Presented below are the generated images after 500 epochs embedded in a _GIF_  and the generator and discriminator training losses stored during the training process.
 The plot illustrates how loss fluctuation decreases gradually and becomes almost constant as training progresses.
 
 <p align="center">
@@ -161,8 +162,8 @@ In this case, the *generator* and *discriminator* models are adapted on a differ
 The main difference with the previous implementation is the custom training function: we use the in-built *model.train_on_batch* method from the _models_ defined beforehand, and then we loop the training step over the epochs and compute the losses. 
 
 #### Results
-Below are shown the generated images after 1000 epochs and the original dataset as well.
-The generator and discriminator training losses stored during the training process are plots.
+Below are shown the generated images after 1000 epochs as well as the original dataset.
+The generator and discriminator training losses stored during the training process are plotted.
 Due to large fluctuations in the discriminator values, an equilibrium cannot be observed between generator and discriminator losses.
 This result suggests that this implementation needs to be improved.
 
@@ -207,7 +208,7 @@ Cross-entropy considered as loss before is not a metric in this sense.
 #### Results
 Below are shown generated images after 1000 epochs and the original dataset.
 The generator and critic training losses during the training process are also plotted.
-For the latter plot, we can see that the stability has increased, due to the stability given by the new metric.
+For the second plot, we can see that the stability has increased due to the new metric that has been used.
 
 <p align="center">
  <img src="./GANs_using_Polynomials/images/WGAN/generated.png" width="1000" />   <img src="./GANs_using_Polynomials/images/WGAN/original.png" width="1000" /> 
