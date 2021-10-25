@@ -1,5 +1,3 @@
-from __future__ import print_function, division
-
 from tensorflow.keras.datasets import mnist
 from tensorflow.python.keras.utils.np_utils import to_categorical
 
