@@ -72,7 +72,7 @@ Model score losses converge at high epochs as expected.
 #### Run Example
 ```
 $ cd models_using_MNIST/
-$ ipython AE.ipynb
+$ ipython3 AE.ipynb
 ```
 [[Code]](models_using_MNIST/AE.ipynb)
 
@@ -107,7 +107,7 @@ Model score losses converge at high epochs as expected.
 #### Run Example
 ```
 $ cd models_using_MNIST/
-$ ipython VAE.ipynb
+$ ipython3 VAE.ipynb
 ```
 [[Code]](models_using_MNIST/VAE.ipynb) [[Paper]](https://arxiv.org/abs/1312.6114)
 
@@ -147,7 +147,7 @@ The plot illustrates how loss fluctuation decreases gradually and becomes almost
 #### Run Example
 ```
 $ cd models_using_MNIST/
-$ ipython DCGAN_mnist.ipynb
+$ ipython3 DCGAN_mnist.ipynb
 ```
 [[Code]](models_using_MNIST/DCGAN_mnist.ipynb) [[Paper]](https://arxiv.org/abs/1511.06434)
 
@@ -181,7 +181,7 @@ This result suggests that this implementation needs to be improved.
 #### Run Example
 ```
 $ cd GANs_using_Polynomials/
-$ ipython DCGAN_poly.ipynb
+$ ipython3 DCGAN_poly.ipynb
 ```
 
 [[Code]](GANs_using_Polynomials/DCGAN_poly.ipynb) 
@@ -224,7 +224,7 @@ For the second plot, we can see that the stability has increased due to the new 
 
 ```
 $ cd GANs_using_Polynomials/
-$ ipython WGAN_poly.ipynb
+$ ipython3 WGAN_poly.ipynb
 ```
 
 [[Code]](GANs_using_Polynomials/WGAN_poly.ipynb) [[Paper]](https://arxiv.org/abs/1701.07875)

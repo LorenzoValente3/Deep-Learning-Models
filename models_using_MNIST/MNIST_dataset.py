@@ -1,12 +1,9 @@
 from tensorflow.keras.datasets import mnist
 from tensorflow.python.keras.utils.np_utils import to_categorical
-
-
 import numpy as np
 import matplotlib.pyplot as plt
 import sys
 import tensorflow as tf
-
 
 
 # +------------------+
