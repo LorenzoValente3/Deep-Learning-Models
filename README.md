@@ -58,8 +58,10 @@ However, if some sort of structure exists in the data, it can be learned and app
 #### Results 
 Plotted below are the distribution of labelled data in its two-latent dimension space, as well as model score losses.
 The model has been considered both with and without the classifier for the decompression.
-In the latent space, we notice a _linear_ distribution of images. 
-This behaviour describes the fact that we have two dimensions to express a handwritten digit.
+In the latent space, it can be noticed a _linear_ distribution of images.
+Each of these colored clusters is a type of digit. 
+Close clusters are digits that are structurally similar, i.e. digits that share information in the latent space. 
+This particular linear distribution describes the fact that we have two dimensions to express a handwritten digit.
 Then it could happen for certain digit that the height increases and the width increases as well, creating a linear shape in the latent space, as displayed. 
 Model score losses converge at high epochs as expected.
 
