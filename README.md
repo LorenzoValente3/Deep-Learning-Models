@@ -75,7 +75,7 @@ The last images of this section represent the original dataset on the first row 
 </p>
 
 <p align="center">
- <img src="/models_using_MNIST/images/AE/reconstructed images.png" width="400" />   
+ <img src="/models_using_MNIST/images/AE/reconstructed images.png" width="800" />   
                                                                         
 </p>
 
