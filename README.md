@@ -56,19 +56,27 @@ Compression and reconstruction are extremely demanding if there is no structure 
 However, if some sort of structure exists in the data, it can be learned and applied when forcing the input through the bottleneck.
 
 #### Results 
-Plotted below are the distribution of labelled data in its two-latent dimension space, as well as model score losses.
+Plotted below are the distribution of labelled data in its two-latent dimension space, as well as model score losses and classifier accuracies.
 The model has been considered both with and without the classifier for the decompression.
 In the latent space, it can be noticed a _linear_ distribution of images.
 Each of these colored clusters is a type of digit. 
 Close clusters are digits that are structurally similar, i.e. digits that share information in the latent space. 
 This particular linear distribution describes the fact that we have two dimensions to express a handwritten digit.
 Then it could happen for certain digit that the height increases and the width increases as well, creating a linear shape in the latent space, as displayed. 
-Model score losses converge at high epochs as expected.
+Model score losses approach zero at high epochs as expected.
+After a training phase of 40 epochs, the accuracy of the classifier model respect to the training data has reached the maximum of 99%.
+The last images of this section represent the original dataset on the first row and for the second row the reconstructed images after the Autoencoder model is applied.
+
 
 | Autoencoder without classifier                                                                               | Autoencoder with classifier  |
 | ------------------------------                                                                              | -------------------------   |
 |<p float="center"> <img src="/models_using_MNIST/images/AE/Latent dimension of Autoencoder without classifier.png" width="400" />                                   |           <img src="/models_using_MNIST/images/AE/Latent dimension of Autoencoder with classifier.png" width="400" />                                                                                                                                           |
 |  <img src="/models_using_MNIST/images/AE/Accuracy of Autoencoder without classifier.png" width="400" />    |<img src="/models_using_MNIST/images/AE/Accuracy of Autoencoder with classifier.png" width="400" />                                                                                             |
+</p>
+
+<p align="center">
+ <img src="/models_using_MNIST/images/AE/reconstructed images.png" width="400" />   
+                                                                        
 </p>
 
 #### Run Example
@@ -83,13 +91,13 @@ Implementation of _Variational Autoencoder (VAE)_ with factorized Gaussian poste
 Additionally, a variational autoencoder capable of _classifying_ data in its latent dimension has been built. 
 
 #### Model
-In contrast with the previous _Standard Autoencoder_, the final part of the *encoder* structure bottleneck has two Dense layers: `self.encoded_mean` and `self.encoded_var`, respectively.
+In contrast with the previous _Standard Autoencoder_, the final part of the *encoder* structure bottleneck has two Dense layers: `self.encoded_mean` and `self.encoded_var`, as implemented in the class VAE  respectively.
 In this case, we need a two-dimensional mean and variance as well. 
 These two layers are used for the *sampling trick implementation*, which help us to impose multi-gaussian distribution on the latent space.  
 A `Lambda Layer` is created. 
-It takes both of the previous two dense layers and measures them to the latent space dimension, via the `self.sampling` implemented function (_Reparametrization trick_).
+It takes both of the previous two dense layers and measures them to the latent space dimension, via the `self.sampling` implemented function ([_Reparametrization trick_](https://en.wikipedia.org/wiki/Variational_autoencoder#Reparameterization_trick)).
 The sampling creates a structure that is a mixture of multiple Gaussian distributions. 
-The remaining part of the encoder architecture is built in perfect analogy with the previous standard autoencoder as well as the _decoder_ architecture.
+The remaining part of the encoder architecture is built in perfect analogy with the previous standard autoencoder as well as the _decoder_ architecture and the _classifier_.
 
 #### Results 
 In analogy with the previous implementation, plotted below are the distribution of labelled data in its two-latent dimension space, as well as model score losses.
@@ -97,7 +105,8 @@ To visualize the results in the latent space, an encoder model structure has bee
 The model implemented has been considered both with and without the classifier for the decompression part.
 In this case, the distribution of images in latent space is _point clouds_. 
 This is because we apply a Gaussian mixture model to the latent space, resulting in K-different point clouds that represent one digit each.
-Model score losses converge at high epochs as expected.
+
+After a training phase of 40 epochs, the accuracy of the classifier model respect to the training data has reached the maximum of 95% and 26.5 for the model loss accuracy for the Variational Autoencoder model without classifier.
 
 | VAE without classifier                                                                            | VAE with classifier         |
 | ------------------------------                                                                      | -------------------------   |
